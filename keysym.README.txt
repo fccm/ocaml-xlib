@@ -1,0 +1,12 @@
+
+The 4 files:
+  keysym.h.ml, keysymdef.h.ml,
+  keysym_match.h.ml, keysymdef_match.h.ml
+have been made from my headers:
+  /usr/include/X11/keysym.h
+  /usr/include/X11/keysymdef.h
+which I have rewritten to make these OCaml compliant.
+
+My original .h files are provided in case you may be 
+willing to compare these with yours.
+

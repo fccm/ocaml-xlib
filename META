@@ -1,0 +1,25 @@
+name = "xlib"
+version = "@VERSION@"
+description = "OCaml bindings to the Xlib library"
+requires = ""
+directory = "+Xlib"
+archive(byte) = "Xlib.cma"
+archive(native) = "Xlib.cmxa"
+
+package "keysym" (
+  requires = "xlib"
+  archive(byte) = "keysym.cma"
+  archive(native) = "keysym.cmxa"
+)
+
+package "keysym_match" (
+  requires = "xlib"
+  archive(byte) = "keysym_match.cma"
+  archive(native) = "keysym_match.cmxa"
+)
+
+package "GLX" (
+  requires = "xlib"
+  archive(byte) = "GLX.cma"
+  archive(native) = "GLX.cmxa"
+)
