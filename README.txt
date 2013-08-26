@@ -17,7 +17,7 @@ described in file COPYING.txt
 
 If it is more convenient for you, you can also use this code
 under the terms of any of these licenses:
-- CC0, any kind of BSD license, WTFPL, zlib/libpng
+- CC0, any kind of BSD license, WTFPL, ISC or zlib/libpng
 
 ============= HOMEPAGE %
 
