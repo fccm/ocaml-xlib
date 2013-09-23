@@ -1,2 +1,2 @@
-(make Xlib.cma)
-ocaml -I . Xlib.cma xcolor.ml $*
+(make -C ../src Xlib.cma)
+ocaml -I ../src Xlib.cma xcolor.ml $*

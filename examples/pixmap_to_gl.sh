@@ -1,4 +1,4 @@
-(make Xlib.cma GLX.cma)
+(make -C ../src Xlib.cma GLX.cma)
 
 GL_DIR="+glMLite"
 if [ ! -f `ocamlc -where`/glMLite/GL.cma ]
@@ -9,11 +9,11 @@ fi
 
 ocaml \
   -I $GL_DIR GL.cma Glu.cma \
-  -I . Xlib.cma GLX.cma \
+  -I ../src Xlib.cma GLX.cma \
   pixmap_to_gl.ml
 
 #ocamlopt -g \
 #  -I +glMLite GL.cmxa Glu.cmxa \
-#  -I . Xlib.cmxa GLX.cmxa \
+#  -I ../src Xlib.cmxa GLX.cmxa \
 #  pixmap_to_gl.ml -o pixmap_to_gl.opt
 

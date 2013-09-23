@@ -1,2 +1,2 @@
-(make Xt.cma)
-ocaml -I . Xt.cma intrinsic.ml $*
+(make -C ../src Xt.cma)
+ocaml -I ../src Xt.cma intrinsic.ml $*

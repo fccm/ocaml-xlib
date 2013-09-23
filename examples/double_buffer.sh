@@ -1,2 +1,2 @@
-(make Xlib.cma)
-ocaml -I . Xlib.cma double_buffer.ml $*
+(make -C ../src Xlib.cma)
+ocaml -I ../src Xlib.cma double_buffer.ml $*

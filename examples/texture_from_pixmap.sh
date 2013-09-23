@@ -1,4 +1,4 @@
-(make Xlib.cma keysym_match.cma GLX.cma GLX_P2T.cma)
+(make -C ../src Xlib.cma keysym_match.cma GLX.cma GLX_P2T.cma)
 GL_DIR="+glMLite"
 if [ ! -f `ocamlc -where`/glMLite/GL.cma ]
 then
@@ -9,4 +9,5 @@ echo " gl is $GL_DIR"
 echo ""
 echo "  Press 'a' to run the animation"
 echo ""
-ocaml str.cma -I . Xlib.cma keysym_match.cma GLX.cma GLX_P2T.cma -I $GL_DIR GL.cma texture_from_pixmap.ml $*
+ocaml str.cma -I ../src Xlib.cma keysym_match.cma GLX.cma GLX_P2T.cma \
+  -I $GL_DIR GL.cma texture_from_pixmap.ml $*
