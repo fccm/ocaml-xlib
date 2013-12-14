@@ -1,4 +1,3 @@
-
 ============= SUMMARY %
 
 OCaml bindings for the Xlib library.
@@ -85,7 +84,7 @@ This package is the base for the projects 'EFuns' and 'GwML':
   http://caml.inria.fr/cgi-bin/hump.fr.cgi?contrib=183
   http://caml.inria.fr/cgi-bin/hump.fr.cgi?contrib=225
 
-The license of this project is not clearly written in the archieve,
+The license of this project is not clearly written in the archive,
 I have written to its author to ask him, and it can be used under
 the GPL license.
 
