@@ -11,6 +11,7 @@
 
 mlcpp.exe
 GLX.mli
+GLX_P2T.mli
 Xt.mli
 keysym.ml
 keysym.mli
