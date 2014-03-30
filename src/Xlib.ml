@@ -1996,9 +1996,6 @@ external xLookupString: event:xKeyEvent xEvent -> buffer:string -> int * keysym 
 external xLookupKeysym: event:xKeyEvent xEvent -> index:int -> keysym = "ml_XLookupKeysym"
 (** {{:http://tronche.com/gui/x/xlib/utilities/keyboard/XLookupKeysym.html}man} *)
 
-external xKeycodeToKeysym: dpy:display -> keycode:keycode -> index:int -> keysym = "ml_XKeycodeToKeysym"
-(** {{:http://tronche.com/gui/x/xlib/utilities/keyboard/XKeycodeToKeysym.html}man} *)
-
 (* TODO
 
 char *XKeysymToString(

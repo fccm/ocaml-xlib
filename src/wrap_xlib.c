@@ -4899,16 +4899,6 @@ ml_XLookupKeysym( value event, value index )
     return Val_keysym(keysym);
 }
 
-CAMLprim value
-ml_XKeycodeToKeysym( value dpy, value keycode, value index )
-{
-    KeySym keysym = XKeycodeToKeysym(
-        Display_val(dpy),
-        KeyCode_val(keycode),
-        Int_val(index) );
-    return Val_keysym(keysym);
-}
-
 
 CAMLprim value
 ml_XRefreshKeyboardMapping( value event )
