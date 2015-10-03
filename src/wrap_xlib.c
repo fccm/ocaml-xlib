@@ -435,6 +435,12 @@ ml_XBell( value dpy, value percent )
     return Val_unit;
 }
 
+CAMLprim value
+ml_LastKnownRequestProcessed( value dpy )
+{
+    return Val_long(LastKnownRequestProcessed(dpy));
+}
+
 static const int close_mode_table[] = {
     DestroyAll,
     RetainPermanent,

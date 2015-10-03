@@ -116,6 +116,9 @@ external xFlush: dpy:display -> unit = "ml_XFlush"
 external xBell: dpy:display -> percent:int -> unit = "ml_XBell"
 (** {{:http://tronche.com/gui/x/xlib/input/XBell.html}man} *)
 
+external xLastKnownRequestProcessed: dpy:display -> int = "ml_LastKnownRequestProcessed"
+(** {{:https://tronche.com/gui/x/xlib/display/display-macros.html#LastKnownRequestProcessed}man} *)
+
 (* WIP *)
 external xChangeKeyboardControl_bell_percent: dpy:display -> bell_percent:int -> unit
    = "ml_XChangeKeyboardControl_bell_percent"
