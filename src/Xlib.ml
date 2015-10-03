@@ -503,6 +503,14 @@ external xRootWindow: dpy:display -> scr:screen_number -> window = "ml_XRootWind
 external xDefaultRootWindow: dpy:display -> window = "ml_XDefaultRootWindow"
 (** {{:http://tronche.com/gui/x/xlib/display/display-macros.html#DefaultRootWindow}man} *)
 
+type focus_state =
+  | RevertToParent
+  | RevertToPointerRoot
+  | RevertToNone
+
+external xGetInputFocus: dpy:display -> (window option * focus_state) = "ml_XGetInputFocus"
+(** {{:https://tronche.com/gui/x/xlib/input/XGetInputFocus.html}man} *)
+
 #if defined(ML)
 let root_win ~dpy ?scr () =
   let scr =

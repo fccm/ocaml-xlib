@@ -213,6 +213,15 @@ Eventmask_val( value em_list )
     return event_mask;
 }
 
+static inline value Focus_state_val(value mode) {
+    switch Int_val(mode) {
+        case 0:     return RevertToParent;
+        case 1:     return RevertToPointerRoot;
+        case 2:     return RevertToNone;
+        default:    caml_failwith("Unknown focus state value");
+    }
+}
+
 // }}}
 // {{{ macro/funcs 
 
@@ -467,6 +476,30 @@ ml_XGrabServer( value dpy )
     );
     //CHECK_STATUS(XGrabServer,1);
     return Val_unit;
+}
+
+static inline value Val_focus_state(int state)
+{
+    switch (state)
+    {
+        case RevertToParent:      return Val_int(0);
+        case RevertToPointerRoot: return Val_int(1);
+        case RevertToNone:        return Val_int(2);
+        default:                  caml_failwith("unhandled focus state");
+    }
+}
+
+CAMLprim value
+ml_XGetInputFocus( value dpy )
+{
+    CAMLlocal1(pair);
+    Window w;
+    int revert_to;
+    XGetInputFocus( Display_val(dpy), &w, &revert_to );
+    pair = caml_alloc(2, 0);
+    Store_field(pair, 0, (w == None) ? Val_none : Val_some(Val_Window(w)));
+    Store_field(pair, 1, Val_focus_state(revert_to));
+    return pair;
 }
 
 CAMLprim value
