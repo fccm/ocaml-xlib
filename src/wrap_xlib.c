@@ -1013,6 +1013,11 @@ caml_get_xid(value xid)
     return Val_XID(Long_val(xid));
 }
 
+CAMLprim value
+caml_get_xid_of_window(value win)
+{
+    return Val_long(Window_val(win));
+}
 
 CAMLprim value
 ml_alloc_XVisualInfo( value unit )

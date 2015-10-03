@@ -563,6 +563,9 @@ external xDestroyWindow: dpy:display -> win:window -> unit = "ml_XDestroyWindow"
 external xid: int -> 'a = "caml_get_xid"
 (** some magic *)
 
+external xid_of_window: window -> int = "caml_get_xid_of_window"
+(** some magic *)
+
 external xStoreName: dpy:display -> win:window -> name:string -> unit = "ml_XStoreName"
 (** {{:http://tronche.com/gui/x/xlib/ICC/client-to-window-manager/XStoreName.html}man} *)
 
