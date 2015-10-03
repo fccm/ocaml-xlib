@@ -1920,6 +1920,21 @@ type xSelectionEvent_contents = {
 external xSelectionEvent_datas: xSelectionEvent xEvent -> xSelectionEvent_contents = "ml_XSelectionEvent_datas"
 (** {{:http://tronche.com/gui/x/xlib/events/client-communication/selection.html}man} *)
 
+type xClientMessgeEvent_data =
+  | ClientMessageBytes of int array
+  | ClientMessageShorts of int array
+  | ClientMessageLongs of int array
+
+type xClientMessageEvent_contents = {
+  client_message_serial: uint;
+  client_message_send_event: bool;
+  client_message_display: display;
+  client_message_window: window;
+  client_message_type: atom;
+  client_message_data: xClientMessgeEvent_data;
+  }
+(** {{:http://tronche.com/gui/x/xlib/events/client-communication/client-message.html}man} *)
+
 type xCreateWindowEvent_contents = {
     createwindow_serial: uint;
     createwindow_send_event: bool;
@@ -1990,7 +2005,7 @@ type event_content =
   | XSelectionRequestEvCnt of todo_contents
   | XSelectionEvCnt        of xSelectionEvent_contents
   | XColormapEvCnt         of todo_contents
-  | XClientMessageEvCnt    of todo_contents
+  | XClientMessageEvCnt    of xClientMessageEvent_contents
   | XMappingEvCnt          of todo_contents
 
 

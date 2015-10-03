@@ -4845,7 +4845,48 @@ ml_XSendEvent(
             caml_failwith("xSendEvent TODO: this event_content is not handled yet");
             break;
         case 29:  // XClientMessageEvCnt
-            caml_failwith("xSendEvent TODO: this event_content is not handled yet");
+            ev.type = ClientMessage;
+            ev.xclient.serial       = ULong_val(Field(cont, 0));
+            ev.xclient.send_event   = Bool_val(Field(cont, 1));
+            ev.xclient.display      = Display_val(Field(cont, 2));
+            ev.xclient.window       = Window_val(Field(cont, 3));
+            ev.xclient.message_type = Atom_val(Field(cont, 4));
+
+            value data = Field(cont, 5);
+            value array = Field(data, 0);
+            int len;
+            int actual_len = Wosize_val(array);
+            switch(Tag_val(data)) {
+                case 0: // bytes
+                    ev.xclient.format = 8;
+                    len = 20;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 20");
+                    while(--len >=0) {
+                        char val = (char)Int_val(Field(array, len));
+                        ev.xclient.data.b[len] = val;
+                    }
+                    break;
+                case 1: // shorts
+                    ev.xclient.format = 16;
+                    len = 10;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 10");
+                    while(--len >=0) {
+                        short val = (short)Int_val(Field(array, len));
+                        ev.xclient.data.s[len] = val;
+                    }
+                    break;
+                case 2: // longs
+                    ev.xclient.format = 32;
+                    len = 5;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 5");
+                    while(--len >=0) {
+                        long val = Int_val(Field(array, len));
+                        ev.xclient.data.l[len] = val;
+                    }
+                    break;
+                default:
+                    caml_failwith("xClientMessgeEvent_data unknown type");
+            }
             break;
         case 30:  // XMappingEvCnt
             caml_failwith("xSendEvent TODO: this event_content is not handled yet");
