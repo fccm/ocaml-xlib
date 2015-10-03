@@ -1869,6 +1869,44 @@ ml_XGetWindowProperty_window_bytecode( value * argv, int argn )
                                          argv[3], argv[4], argv[5], argv[6] );
 }
 
+CAMLprim value
+ml_hasWindowProperty(
+        value dpy,
+        value win,
+        value property
+        )
+{
+    Atom actual_type;
+    Atom expected_type = Atom_val(property);
+    int actual_format;
+    unsigned long nitems, bytes_after;
+    Window *prop;
+
+    int result = XGetWindowProperty(
+        Display_val(dpy),
+        Window_val(win),
+        expected_type,
+        Long_val(0), // offset
+        Long_val(0), // length
+        0,           // delete
+        expected_type,
+        &actual_type,
+        &actual_format,
+        &nitems,
+        &bytes_after,
+        (unsigned char**)&prop
+    );
+    if (result != Success)
+        return Val_false;
+
+    XFree(prop);
+
+    if (actual_type != property)
+        return Val_false;
+
+    return Val_true;
+}
+
 
 /* Managing Installed Colormaps */
 

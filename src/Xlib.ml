@@ -792,6 +792,14 @@ external xGetWindowProperty_window:
       "ml_XGetWindowProperty_window"
 (** {{:http://tronche.com/gui/x/xlib/window-information/XGetWindowProperty.html}man} *)
 
+external hasWindowProperty:
+    dpy:display ->
+    win:window ->
+    property:atom ->
+    bool
+    = "ml_hasWindowProperty"
+(* Try getting a property, and return whether it exists *)
+
 
 
 (** {3 XScreen} *)
