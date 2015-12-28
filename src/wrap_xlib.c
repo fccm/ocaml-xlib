@@ -213,6 +213,15 @@ Eventmask_val( value em_list )
     return event_mask;
 }
 
+static inline value Focus_state_val(value mode) {
+    switch Int_val(mode) {
+        case 0:     return RevertToParent;
+        case 1:     return RevertToPointerRoot;
+        case 2:     return RevertToNone;
+        default:    caml_failwith("Unknown focus state value");
+    }
+}
+
 // }}}
 // {{{ macro/funcs 
 
@@ -426,6 +435,12 @@ ml_XBell( value dpy, value percent )
     return Val_unit;
 }
 
+CAMLprim value
+ml_LastKnownRequestProcessed( value dpy )
+{
+    return Val_long(LastKnownRequestProcessed(dpy));
+}
+
 static const int close_mode_table[] = {
     DestroyAll,
     RetainPermanent,
@@ -467,6 +482,30 @@ ml_XGrabServer( value dpy )
     );
     //CHECK_STATUS(XGrabServer,1);
     return Val_unit;
+}
+
+static inline value Val_focus_state(int state)
+{
+    switch (state)
+    {
+        case RevertToParent:      return Val_int(0);
+        case RevertToPointerRoot: return Val_int(1);
+        case RevertToNone:        return Val_int(2);
+        default:                  caml_failwith("unhandled focus state");
+    }
+}
+
+CAMLprim value
+ml_XGetInputFocus( value dpy )
+{
+    CAMLlocal1(pair);
+    Window w;
+    int revert_to;
+    XGetInputFocus( Display_val(dpy), &w, &revert_to );
+    pair = caml_alloc(2, 0);
+    Store_field(pair, 0, (w == None) ? Val_none : Val_some(Val_Window(w)));
+    Store_field(pair, 1, Val_focus_state(revert_to));
+    return pair;
 }
 
 CAMLprim value
@@ -1013,6 +1052,11 @@ caml_get_xid(value xid)
     return Val_XID(Long_val(xid));
 }
 
+CAMLprim value
+caml_get_xid_of_window(value win)
+{
+    return Val_long(Window_val(win));
+}
 
 CAMLprim value
 ml_alloc_XVisualInfo( value unit )
@@ -1823,6 +1867,44 @@ ml_XGetWindowProperty_window_bytecode( value * argv, int argn )
 {
     return ml_XGetWindowProperty_window( argv[0], argv[1], argv[2],
                                          argv[3], argv[4], argv[5], argv[6] );
+}
+
+CAMLprim value
+ml_hasWindowProperty(
+        value dpy,
+        value win,
+        value property
+        )
+{
+    Atom actual_type;
+    Atom expected_type = Atom_val(property);
+    int actual_format;
+    unsigned long nitems, bytes_after;
+    Window *prop;
+
+    int result = XGetWindowProperty(
+        Display_val(dpy),
+        Window_val(win),
+        expected_type,
+        Long_val(0), // offset
+        Long_val(0), // length
+        0,           // delete
+        expected_type,
+        &actual_type,
+        &actual_format,
+        &nitems,
+        &bytes_after,
+        (unsigned char**)&prop
+    );
+    if (result != Success)
+        return Val_false;
+
+    XFree(prop);
+
+    if (actual_type != property)
+        return Val_false;
+
+    return Val_true;
 }
 
 
@@ -4763,7 +4845,48 @@ ml_XSendEvent(
             caml_failwith("xSendEvent TODO: this event_content is not handled yet");
             break;
         case 29:  // XClientMessageEvCnt
-            caml_failwith("xSendEvent TODO: this event_content is not handled yet");
+            ev.type = ClientMessage;
+            ev.xclient.serial       = ULong_val(Field(cont, 0));
+            ev.xclient.send_event   = Bool_val(Field(cont, 1));
+            ev.xclient.display      = Display_val(Field(cont, 2));
+            ev.xclient.window       = Window_val(Field(cont, 3));
+            ev.xclient.message_type = Atom_val(Field(cont, 4));
+
+            value data = Field(cont, 5);
+            value array = Field(data, 0);
+            int len;
+            int actual_len = Wosize_val(array);
+            switch(Tag_val(data)) {
+                case 0: // bytes
+                    ev.xclient.format = 8;
+                    len = 20;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 20");
+                    while(--len >=0) {
+                        char val = (char)Int_val(Field(array, len));
+                        ev.xclient.data.b[len] = val;
+                    }
+                    break;
+                case 1: // shorts
+                    ev.xclient.format = 16;
+                    len = 10;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 10");
+                    while(--len >=0) {
+                        short val = (short)Int_val(Field(array, len));
+                        ev.xclient.data.s[len] = val;
+                    }
+                    break;
+                case 2: // longs
+                    ev.xclient.format = 32;
+                    len = 5;
+                    if(len != actual_len) caml_failwith("xClientMessgeEvent_data expected an array of 5");
+                    while(--len >=0) {
+                        long val = Int_val(Field(array, len));
+                        ev.xclient.data.l[len] = val;
+                    }
+                    break;
+                default:
+                    caml_failwith("xClientMessgeEvent_data unknown type");
+            }
             break;
         case 30:  // XMappingEvCnt
             caml_failwith("xSendEvent TODO: this event_content is not handled yet");
