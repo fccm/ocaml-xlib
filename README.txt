@@ -100,7 +100,7 @@ It is released under the BSD license.
 ============= CONTRIBUTORS %
 
 Arlen Cuss, 2011-01-28: fix for the function xFetchName.
- 
+
 Alex Muscar <muscar(_)gmail.com>, 2012-01-01:
 - provided a patch to add the function ml_XCreateWindowEvent_datas()
   and the type xCreateWindowEvent_contents

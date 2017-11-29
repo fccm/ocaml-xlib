@@ -27,7 +27,7 @@ Val_Display(Display * dpy)
 
 static inline value
 Val_some(value v)
-{   
+{
     CAMLparam1(v);
     CAMLlocal1(some);
     some = caml_alloc(1, 0);
@@ -46,7 +46,7 @@ Val_some(value v)
 
 
 /* The scruture Screen is here renamed with an additionnal X
-   as a way of disambiguation with screen numbers (int) and 
+   as a way of disambiguation with screen numbers (int) and
    its conversion macro ScreenNB_val() */
 #define Val_XScreen(s) ((value)(s))
 #define XScreen_val(v) ((Screen *)(v))

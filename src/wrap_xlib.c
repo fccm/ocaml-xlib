@@ -1,19 +1,19 @@
 /* OCaml bindings for the Xlib library.
    Copyright (C) 2008, 2009, 2010 by Florent Monnier
    printf("fmonnier@%s", "linux-nantes.org");
- 
+
   OCaml-Xlib is FLOSS software:
- 
+
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
   to deal in the Software without restriction, including without limitation
   the rights to use, copy, modify, merge, publish, distribute, sublicense,
   and/or sell copies of the Software, and to permit persons to whom the
   Software is furnished to do so, subject to the following conditions:
- 
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
- 
+
   The Software is provided "AS IS", without warranty of any kind, express or
   implied, including but not limited to the warranties of merchantability,
   fitness for a particular purpose and noninfringement. In no event shall
@@ -23,7 +23,7 @@
   in the Software.
 */
 
-// {{{ Headers 
+// {{{ Headers
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -46,7 +46,7 @@
 
 #include "wrap_xlib.h"
 
-// {{{ caml allocs 
+// {{{ caml allocs
 
 custom_ops(XEvent);
 custom_ops(XColor);
@@ -59,7 +59,7 @@ custom_ops(XChar2b);
 custom_ops_n(XChar2b);
 
 // }}}
-// {{{ XID's 
+// {{{ XID's
 
 #define Drawable_val(v) (XID_val(Drawable,(v)))
 #define Val_Drawable(xid) (Val_XID((xid)))
@@ -80,7 +80,7 @@ custom_ops_n(XChar2b);
 #define Keysym_val Long_val
 
 // }}}
-// {{{ return status 
+// {{{ return status
 
 #define DO_CHECK_RETURN_STATUS 1
 #if DO_CHECK_RETURN_STATUS
@@ -108,7 +108,7 @@ custom_ops_n(XChar2b);
  */
 
 // }}}
-// {{{ GC 
+// {{{ GC
 
 // Handle the finalisation of GC's (other than the default one)
 
@@ -120,7 +120,7 @@ void Finalize_GC( value gc )
 {
     value dpy = Display_of_GC(gc);
     if (display_is_open(dpy)) {
-        GET_STATUS  XFreeGC(     
+        GET_STATUS  XFreeGC(
             Display_val(dpy),
             GC_val(gc)
         );
@@ -169,7 +169,7 @@ static inline value Val_GC(GC gc, value dpy)
 }
 
 // }}}
-// {{{ Event-Masks 
+// {{{ Event-Masks
 
 static const long event_mask_table[] = {
     KeyPressMask,
@@ -223,7 +223,7 @@ static inline value Focus_state_val(value mode) {
 }
 
 // }}}
-// {{{ macro/funcs 
+// {{{ macro/funcs
 
 /* switch this to use the macros or the functions */
 //#define XMP(f) X##f  // use the functions
@@ -284,7 +284,7 @@ static inline value Focus_state_val(value mode) {
 
 
 // }}}
-// {{{ ints 
+// {{{ ints
 
 // wraps unsigned long
 #define Pixel_color_val  Unsigned_long_val
@@ -301,20 +301,20 @@ static inline value Focus_state_val(value mode) {
 #define MAX_INT64  9223372036854775807L
 
 // }}}
-// {{{ Atom 
+// {{{ Atom
 
 #define Val_Atom(v) ((value)(v))
 #define Atom_val(v) ((Atom)(v))
 #define Atom_val_addr(v) ((Atom *)(&v))
 
 // }}}
-// {{{ KeyCode 
+// {{{ KeyCode
 
 /* There's no real uniformity about the type keycode,
    - in structures it is most often (int) and sometimes (unsigned int)
    - in functions sometimes there is the NeedWidePrototypes switch
      which switches between (unsigned int) and (unsigned char)
-   - in functions sometimes it is just (int) as parameter 
+   - in functions sometimes it is just (int) as parameter
      or (int *) if it's a returned value
 
    However as it handles a code for each key of the keyboard, and that generally
@@ -325,7 +325,7 @@ static inline value Focus_state_val(value mode) {
 #define KeyCode_val Long_val
 
 // }}}
-// {{{ caml_copy_string_array_n() 
+// {{{ caml_copy_string_array_n()
 
 // The list provided to caml_copy_string_array() needs to be NULL terminated
 static value caml_copy_string_array_n(char **strl, int n)
@@ -349,7 +349,7 @@ static value caml_copy_string_array_n(char **strl, int n)
 // TODO: XGetErrorText()
 #if 0
 int ErrorHandler( Display *dpy, XErrorEvent *event )
-{   
+{
     char buffer[BUFSIZ];
     XGetErrorText(dpy, event->error_code, buffer, BUFSIZ);
     /*
@@ -360,7 +360,7 @@ int ErrorHandler( Display *dpy, XErrorEvent *event )
     */
     printf("ERROR: %s\n", buffer);
     return 0;
-} 
+}
 
 CAMLprim value
 ml_XSetErrorHandler( value unit )
@@ -479,7 +479,7 @@ CAMLprim value
 ml_XGrabServer( value dpy )
 {
     //GET_STATUS
-    XGrabServer( 
+    XGrabServer(
         Display_val(dpy)
     );
     //CHECK_STATUS(XGrabServer,1);
@@ -515,7 +515,7 @@ CAMLprim value
 ml_XUngrabServer( value dpy )
 {
     //GET_STATUS
-    XUngrabServer( 
+    XUngrabServer(
         Display_val(dpy)
     );
     //CHECK_STATUS(XUngrabServer,1);
@@ -1088,7 +1088,7 @@ static const long vinfo_mask_table[] = {
 static inline long
 vinfo_mask_val( value mask_list )
 {
-    long c_mask = 0; 
+    long c_mask = 0;
     while ( mask_list != Val_emptylist )
     {
         value head = Field(mask_list, 0);
@@ -1329,7 +1329,7 @@ static const unsigned long winattr_valuemask_table[] = {
 static inline unsigned long
 winattr_valuemask_val( value mask_list )
 {
-    unsigned long c_mask = 0; 
+    unsigned long c_mask = 0;
     while ( mask_list != Val_emptylist )
     {
         value head = Field(mask_list, 0);
@@ -1534,7 +1534,7 @@ ml_XRaiseWindow( value dpy, value win )
 CAMLprim value
 ml_XStoreName( value dpy, value win, value name )
 {
-    GET_STATUS XStoreName(  
+    GET_STATUS XStoreName(
         Display_val(dpy),
         Window_val(win),
         String_val(name) );
@@ -2299,7 +2299,7 @@ static const unsigned long gc_valuemask_table[] = {
 static inline unsigned long
 gc_valuemask_val( value mask_list )
 {
-    unsigned long c_mask = 0; 
+    unsigned long c_mask = 0;
     while ( mask_list != Val_emptylist )
     {
         value head = Field(mask_list, 0);
@@ -2653,7 +2653,7 @@ CAMLprim value ml_XSetFillStyle( value dpy, value gc, value fill_style )
         Display_val(dpy),
         GC_val(gc),
         Fill_style_val(fill_style)
-    ); 
+    );
     return Val_unit;
 }
 
@@ -2708,7 +2708,7 @@ CAMLprim value
 ml_XDrawArc( value dpy, value d, value gc, value x, value y,
              value width, value height, value angle1, value angle2 )
 {
-    GET_STATUS  XDrawArc(    
+    GET_STATUS  XDrawArc(
         Display_val(dpy),
         Drawable_val(d),
         GC_val(gc),
@@ -2718,7 +2718,7 @@ ml_XDrawArc( value dpy, value d, value gc, value x, value y,
         UInt_val(height),
         Int_val(angle1),
         Int_val(angle2)
-    ); 
+    );
     CHECK_STATUS(XDrawArc, 1);
     return Val_unit;
 }
@@ -2953,7 +2953,7 @@ ml_XDrawRectangle_bytecode( value * argv, int argn )
                               argv[3], argv[4], argv[5], argv[6] );
 }
 
- 
+
 CAMLprim value
 ml_XDrawRectangles( value dpy, value d, value gc, value ml_rectangles )
 {
@@ -3079,7 +3079,7 @@ CAMLprim value
 ml_XFillArc( value dpy, value d, value gc, value x, value y,
              value width, value height, value angle1, value angle2 )
 {
-    GET_STATUS  XFillArc(    
+    GET_STATUS  XFillArc(
         Display_val(dpy),
         Drawable_val(d),
         GC_val(gc),
@@ -3089,7 +3089,7 @@ ml_XFillArc( value dpy, value d, value gc, value x, value y,
         UInt_val(height),
         Int_val(angle1),
         Int_val(angle2)
-    ); 
+    );
     CHECK_STATUS(XFillArc, 1);
     return Val_unit;
 }
@@ -3362,7 +3362,7 @@ ml_XListPixmapFormats( value dpy )
         Store_field(v, 0, Val_int(pfv[i].depth));
         Store_field(v, 1, Val_int(pfv[i].bits_per_pixel));
         Store_field(v, 2, Val_int(pfv[i].scanline_pad));
- 
+
         Store_field(arr, i, v);
     }
     XFree(pfv);
@@ -3461,7 +3461,7 @@ ml_XGetImage( value dpy, value d, value x, value y,
     int format = XImage_format_val(_format);
     if (format == XYBitmap)
       caml_invalid_argument("xGetImage: format should be XYPixmap or ZPixmap");
- 
+
     /*
        plane_mask represents an (unsigned long) and
        OCaml ints are C (long) and XAllPlanes()
@@ -3470,7 +3470,7 @@ ml_XGetImage( value dpy, value d, value x, value y,
        but Long_val()
        XXX: Maybe we should use an ocaml int32 ?
     */
- 
+
     ximage = XGetImage(
         Display_val(dpy),
         Drawable_val(d),
@@ -3984,7 +3984,7 @@ static const unsigned int logical_state_mask_table[] = {
 //define State_mask_val(i) (logical_state_mask_table[Long_val(i)])
 static unsigned int State_mask_val(li)
 {
-    int c_mask = 0; 
+    int c_mask = 0;
     while ( li != Val_emptylist )
     {
         value head = Field(li, 0);
@@ -4693,7 +4693,7 @@ ml_XSendEvent(
     value cont = Field(event_content,0);
     switch (Tag_val(event_content))
     {
-        case 0:   // {{{ XMotionEvCnt 
+        case 0:   // {{{ XMotionEvCnt
             ev.type = MotionNotify;
             ev.xmotion.serial      = ULong_val(Field(cont, 0));
             ev.xmotion.send_event  = Bool_val(Field(cont, 1));
@@ -4710,7 +4710,7 @@ ml_XSendEvent(
             ev.xmotion.is_hint     = Char_val(Field(cont, 12));
             ev.xmotion.same_screen = Bool_val(Field(cont, 13));
             break; // }}}
-        case 1:   // {{{ XKeyPressedEvCnt 
+        case 1:   // {{{ XKeyPressedEvCnt
             ev.type = KeyPress;
             ev.xkey.serial      = ULong_val(Field(cont, 0));
             ev.xkey.send_event  = Bool_val(Field(cont, 1));
@@ -4727,7 +4727,7 @@ ml_XSendEvent(
             ev.xkey.keycode = KeyCode_val(Field(cont, 12));
             ev.xkey.same_screen = Bool_val(Field(cont, 13));
             break; // }}}
-        case 2:   // {{{ XKeyReleasedEvCnt 
+        case 2:   // {{{ XKeyReleasedEvCnt
             ev.type = KeyRelease;
             ev.xkey.serial      = ULong_val(Field(cont, 0));
             ev.xkey.send_event  = Bool_val(Field(cont, 1));
@@ -4744,7 +4744,7 @@ ml_XSendEvent(
             ev.xkey.keycode = KeyCode_val(Field(cont, 12));
             ev.xkey.same_screen = Bool_val(Field(cont, 13));
             break; // }}}
-        case 3:   // {{{ XButtonPressedEvCnt 
+        case 3:   // {{{ XButtonPressedEvCnt
             ev.type = ButtonPress;
             ev.xbutton.serial      = ULong_val(Field(cont, 0));
             ev.xbutton.send_event  = Bool_val(Field(cont, 1));
@@ -4761,7 +4761,7 @@ ml_XSendEvent(
             ev.xbutton.button      = Button_val(Field(cont, 12));
             ev.xbutton.same_screen = Bool_val(Field(cont, 13));
             break; // }}}
-        case 4:   // {{{ XButtonReleasedEvCnt 
+        case 4:   // {{{ XButtonReleasedEvCnt
             ev.type = ButtonRelease;
             ev.xbutton.serial      = ULong_val(Field(cont, 0));
             ev.xbutton.send_event  = Bool_val(Field(cont, 1));
@@ -5165,12 +5165,12 @@ ml_XChangeKeyboardMapping(  // ---------------- WIP
                               "(num_codes * keysyms_per_keycode) elements");
     }
     /* From the man: http://tronche.com/gui/x/xlib/input/XChangeKeyboardMapping.html
- 
+
        The specified first_keycode must be greater than or equal to min_keycode
        returned by XDisplayKeycodes(), or a BadValue error results.
        In addition, the following expression must be less than or equal to max_keycode,
        or a BadValue error results: (first_keycode + num_codes - 1)
- 
+
        TODO: handle this BadValue error */
     {
         int min_keycode, max_keycode;
@@ -5285,7 +5285,7 @@ ml_XQueryPointer( value dpy, value win )
         Store_field( subp, 0, Val_Window(child) );
         Store_field( subp, 1, Val_int(win_x) );
         Store_field( subp, 2, Val_int(win_y) );
- 
+
         Store_field( pntr, 0, Val_Window(root) );
         Store_field( pntr, 1, Val_int(root_x) );
         Store_field( pntr, 2, Val_int(root_y) );
@@ -5350,11 +5350,11 @@ static const unsigned int keyboardcontrol_table[] = {
 typedef struct {
         int key_click_percent;
         int bell_percent;
-        int bell_pitch; 
+        int bell_pitch;
         int bell_duration;
         int led;
         int led_mode;
-        int key;        
+        int key;
         int auto_repeat_mode;   // On, Off, Default
 } XKeyboardControl;
 */
@@ -5737,14 +5737,14 @@ Status XReconfigureWMWindow(
     int                 /* screen_number */,
     unsigned int        /* mask */,
     XWindowChanges*     /* changes */
-);  
-    
+);
+
 Status XGetWMProtocols(
     Display*            /* display */,
     Window              /* w */,
     Atom**              /* protocols_return */,
     int*                /* count_return */
-);  
+);
 Status XSetWMProtocols(
     Display*            /* display */,
     Window              /* w */,

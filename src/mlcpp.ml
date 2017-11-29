@@ -1,20 +1,20 @@
 (* {{{ COPYING *(
- 
+
   This is a minimal preprocessor for OCaml source files.
- 
+
   Copyright (C) 2008  Florent Monnier
   Contact: ("fmonnier@" ^ "linux-nantes.org")
- 
+
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
   to deal in the Software without restriction, including without limitation
   the rights to use, copy, modify, merge, publish, distribute, sublicense,
   and/or sell copies of the Software, and to permit persons to whom the
   Software is furnished to do so, subject to the following conditions:
- 
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
- 
+
   The Software is provided "AS IS", without warranty of any kind, express or
   implied, including but not limited to the warranties of merchantability,
   fitness for a particular purpose and noninfringement. In no event shall
@@ -22,7 +22,7 @@
   liability, whether in an action of contract, tort or otherwise, arising
   from, out of or in connection with the Software or the use or other dealings
   in the Software.
- 
+
 )* }}} *)
 (*
    This is a minimal preprocessor similar to cpp for OCaml source files.
@@ -162,7 +162,7 @@ let replace_all ~str ~sub ~by =
     let all_pos = (find_pos [0] 0) in
     if List.length all_pos = 2 then
       raise Invalid_string;
- 
+
     let rec make_slices acc = function
       | [] -> acc
       | _::[] -> assert(false)
@@ -171,7 +171,7 @@ let replace_all ~str ~sub ~by =
           make_slices (this::acc) tl
     in
     let slices = make_slices [] all_pos in
- 
+
     let res = String.concat by slices in
     (res)
   with
@@ -472,9 +472,9 @@ let () =
           else begin
             let line = replace line "#ifdef" "" in
             let mdef = strip line in
- 
+
             let tail, if_part, else_part = if_else_parts main_file tail in
- 
+
             if is_bound mdef repl
             then (List.append if_part acc, true), tail
             else (List.append else_part acc, true), tail

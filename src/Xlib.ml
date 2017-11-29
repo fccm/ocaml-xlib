@@ -1,19 +1,19 @@
 (** OCaml bindings for the Xlib library. *)
 (*  Copyright (C) 2008, 2009, 2010 by Florent Monnier
     Contact: ("fmonnier@" ^ "linux-nantes.org")
-  
+
   OCaml-Xlib is FLOSS software:
- 
+
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
   to deal in the Software without restriction, including without limitation
   the rights to use, copy, modify, merge, publish, distribute, sublicense,
   and/or sell copies of the Software, and to permit persons to whom the
   Software is furnished to do so, subject to the following conditions:
- 
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
- 
+
   The Software is provided "AS IS", without warranty of any kind, express or
   implied, including but not limited to the warranties of merchantability,
   fitness for a particular purpose and noninfringement. In no event shall
@@ -138,9 +138,9 @@ external xChangeKeyboardControl_bell: dpy:display ->
 
     [bell_pitch] member sets the pitch (specified in Hz) of the bell, if possible.
     A setting of -1 restores the default. Other negative values generate a BadValue error.
-   
+
     [bell_duration] member sets the duration of the bell specified in milliseconds,
-    if possible.  A setting of -1 restores the default. Other negative values generate 
+    if possible.  A setting of -1 restores the default. Other negative values generate
     a BadValue error. *)
 
 external xChangeKeyboardControl_key_click_percent: dpy:display -> key_click_percent:int -> unit
@@ -669,7 +669,7 @@ external xCreateWindow:
 (* {{{ create_window *)
 
 type winattr =
-  | BackPixmap       of pixmap 
+  | BackPixmap       of pixmap
   | BackPixel        of pixel_color
   | BorderPixmap     of pixmap
   | BorderPixel      of pixel_color
@@ -969,7 +969,7 @@ type size_hints =
   | PResizeInc of int * int
   | PBaseSize of int * int
   | PAspect of (int * int) * (int * int)
-  | PWinGravity of int 
+  | PWinGravity of int
 
 #if defined(ML)
 let set_normal_hints ~dpy ~win ~hints =
@@ -1244,19 +1244,19 @@ val xEventKind : event:any xEvent -> event_kind
 let xEventKind ~event =
   match xEventType ~event with
   | MotionNotify        -> XMotionEvent           (Obj.magic event : xMotionEvent           xEvent)
- 
+
   | KeyPress            -> XKeyPressedEvent       (Obj.magic event : xKeyPressedEvent       xEvent)  (* xKeyEvent *)
   | KeyRelease          -> XKeyReleasedEvent      (Obj.magic event : xKeyReleasedEvent      xEvent)  (* xKeyEvent *)
 
   | ButtonPress         -> XButtonPressedEvent    (Obj.magic event : xButtonPressedEvent    xEvent)  (* xButtonEvent *)
   | ButtonRelease       -> XButtonReleasedEvent   (Obj.magic event : xButtonReleasedEvent   xEvent)  (* xButtonEvent *)
- 
+
   | EnterNotify         -> XCrossingEvent         (Obj.magic event : xEnterWindowEvent      xEvent)  (* xCrossingEvent *)
   | LeaveNotify         -> XCrossingEvent         (Obj.magic event : xLeaveWindowEvent      xEvent)  (* xCrossingEvent *)
- 
+
   | FocusIn             -> XFocusChangeEvent      (Obj.magic event : xFocusInEvent          xEvent)  (* xFocusChangeEvent *)
   | FocusOut            -> XFocusChangeEvent      (Obj.magic event : xFocusOutEvent         xEvent)  (* xFocusChangeEvent *)
- 
+
   | KeymapNotify        -> XKeymapEvent           (Obj.magic event : xKeymapEvent           xEvent)
   | Expose              -> XExposeEvent           (Obj.magic event : xExposeEvent           xEvent)
   | GraphicsExpose      -> XGraphicsExposeEvent   (Obj.magic event : xGraphicsExposeEvent   xEvent)
@@ -2305,7 +2305,7 @@ external xGCValues_get_subwindow_mode: gcv:xGCValues -> subwindow_mode = "ml_XGC
 
 type gc_values = {
     gcValues: xGCValues;
- 
+
     set_foreground: fg:pixel_color -> unit;
     set_background: bg:pixel_color -> unit;
     set_graphics_exposures: bool -> unit;
@@ -2324,7 +2324,7 @@ type gc_values = {
     set_arc_mode: arc_mode -> unit;
     set_font: font -> unit;
     set_subwindow_mode: subwindow_mode -> unit;
- 
+
     foreground: pixel_color;
     background: pixel_color;
     graphics_exposures: bool;
@@ -2354,7 +2354,7 @@ val new_gc_values : unit -> gc_values
 let new_gc_values () =
   let gcv = new_xGCValues() in
   { gcValues = gcv;
-  
+
     set_foreground         = xGCValues_set_foreground ~gcv;
     set_background         = xGCValues_set_background ~gcv;
     set_graphics_exposures = xGCValues_set_graphics_exposures ~gcv;
@@ -2373,7 +2373,7 @@ let new_gc_values () =
     set_arc_mode           = xGCValues_set_arc_mode ~gcv;
     set_font               = xGCValues_set_font ~gcv;
     set_subwindow_mode     = xGCValues_set_subwindow_mode ~gcv;
- 
+
     foreground         = xGCValues_get_foreground ~gcv;
     background         = xGCValues_get_background ~gcv;
     graphics_exposures = xGCValues_get_graphics_exposures ~gcv;
@@ -2562,7 +2562,7 @@ type shape_kind =
   | Nonconvex
   | Convex
 
-external xFillPolygon: dpy:display -> d:'a drawable -> gc:gc -> points: xPoint array -> 
+external xFillPolygon: dpy:display -> d:'a drawable -> gc:gc -> points: xPoint array ->
                        shape:shape_kind -> mode:coordinate_mode -> unit
     = "ml_XFillPolygon_bytecode"
       "ml_XFillPolygon"
@@ -2687,7 +2687,7 @@ external xGetImage: dpy:display -> d:'a drawable -> x:int -> y:int ->
 (** {{:http://tronche.com/gui/x/xlib/graphics/XGetImage.html}man} *)
 
 
-type image_data = (int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Genarray.t 
+type image_data = (int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Genarray.t
 
 external xImage_data_ba: image:xImage -> image_data = "ml_XImage_data_ba" (* XXX : Experimental ; TODO : test me *)
 
@@ -2969,14 +2969,14 @@ Status XReconfigureWMWindow(
     int                 /* screen_number */,
     unsigned int        /* mask */,
     XWindowChanges*     /* changes */
-);  
-    
+);
+
 Status XGetWMProtocols(
     Display*            /* display */,
     Window              /* w */,
     Atom**              /* protocols_return */,
     int*                /* count_return */
-);  
+);
 Status XSetWMProtocols(
     Display*            /* display */,
     Window              /* w */,

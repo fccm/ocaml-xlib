@@ -12,14 +12,14 @@ type keysym_var =
  *)
 
   | XK_BackSpace                     (* Back space, back char *)
-  | XK_Tab                         
+  | XK_Tab
   | XK_Linefeed                      (* Linefeed, LF *)
-  | XK_Clear                       
+  | XK_Clear
   | XK_Return                        (* Return, enter *)
   | XK_Pause                         (* Pause, hold *)
-  | XK_Scroll_Lock                 
-  | XK_Sys_Req                     
-  | XK_Escape                      
+  | XK_Scroll_Lock
+  | XK_Sys_Req
+  | XK_Escape
   | XK_Delete                        (* Delete, rubout *)
 
 
@@ -27,10 +27,10 @@ type keysym_var =
 (* International & multi-key character composition *)
 
   | XK_Multi_key                     (* Multi-key character compose *)
-  | XK_Codeinput                   
-  | XK_SingleCandidate             
-  | XK_MultipleCandidate           
-  | XK_PreviousCandidate           
+  | XK_Codeinput
+  | XK_SingleCandidate
+  | XK_MultipleCandidate
+  | XK_PreviousCandidate
 
 (* Japanese keyboard support *)
 
@@ -59,7 +59,7 @@ type keysym_var =
 
 (* Cursor control & motion *)
 
-  | XK_Home                         
+  | XK_Home
   | XK_Left                          (* Move left, left arrow *)
   | XK_Up                            (* Move up, up arrow *)
   | XK_Right                         (* Move right, right arrow *)
@@ -75,7 +75,7 @@ type keysym_var =
 (* Misc functions *)
 
   | XK_Select                        (* Select, mark *)
-  | XK_Print                       
+  | XK_Print
   | XK_Execute                       (* Execute, run, do *)
   | XK_Insert                        (* Insert, insert here *)
   | XK_Undo
@@ -92,43 +92,43 @@ type keysym_var =
 (* Keypad functions, keypad numbers cleverly chosen to map to ASCII *)
 
   | XK_KP_Space                      (* Space *)
-  | XK_KP_Tab                      
+  | XK_KP_Tab
   | XK_KP_Enter                      (* Enter *)
   | XK_KP_F1                         (* PF1, KP_A, ... *)
-  | XK_KP_F2                       
-  | XK_KP_F3                       
-  | XK_KP_F4                       
-  | XK_KP_Home                     
-  | XK_KP_Left                     
-  | XK_KP_Up                       
-  | XK_KP_Right                    
-  | XK_KP_Down                     
-  | XK_KP_Prior                    
-  | XK_KP_Page_Up                  
-  | XK_KP_Next                     
-  | XK_KP_Page_Down                
-  | XK_KP_End                      
-  | XK_KP_Begin                    
-  | XK_KP_Insert                   
-  | XK_KP_Delete                   
+  | XK_KP_F2
+  | XK_KP_F3
+  | XK_KP_F4
+  | XK_KP_Home
+  | XK_KP_Left
+  | XK_KP_Up
+  | XK_KP_Right
+  | XK_KP_Down
+  | XK_KP_Prior
+  | XK_KP_Page_Up
+  | XK_KP_Next
+  | XK_KP_Page_Down
+  | XK_KP_End
+  | XK_KP_Begin
+  | XK_KP_Insert
+  | XK_KP_Delete
   | XK_KP_Equal                      (* Equals *)
-  | XK_KP_Multiply                 
-  | XK_KP_Add                      
+  | XK_KP_Multiply
+  | XK_KP_Add
   | XK_KP_Separator                  (* Separator, often comma *)
-  | XK_KP_Subtract                 
-  | XK_KP_Decimal                  
-  | XK_KP_Divide                   
+  | XK_KP_Subtract
+  | XK_KP_Decimal
+  | XK_KP_Divide
 
-  | XK_KP_0                        
-  | XK_KP_1                        
-  | XK_KP_2                        
-  | XK_KP_3                        
-  | XK_KP_4                        
-  | XK_KP_5                        
-  | XK_KP_6                        
-  | XK_KP_7                        
-  | XK_KP_8                        
-  | XK_KP_9                        
+  | XK_KP_0
+  | XK_KP_1
+  | XK_KP_2
+  | XK_KP_3
+  | XK_KP_4
+  | XK_KP_5
+  | XK_KP_6
+  | XK_KP_7
+  | XK_KP_8
+  | XK_KP_9
 
 
 
@@ -226,114 +226,114 @@ type keysym_var =
  *)
 
 #ifdef XK_XKB_KEYS
-  | XK_ISO_Lock                    
-  | XK_ISO_Level2_Latch            
-  | XK_ISO_Level3_Shift            
-  | XK_ISO_Level3_Latch            
-  | XK_ISO_Level3_Lock             
+  | XK_ISO_Lock
+  | XK_ISO_Level2_Latch
+  | XK_ISO_Level3_Shift
+  | XK_ISO_Level3_Latch
+  | XK_ISO_Level3_Lock
   | XK_ISO_Group_Shift               (* Alias for mode_switch *)
-  | XK_ISO_Group_Latch             
-  | XK_ISO_Group_Lock              
-  | XK_ISO_Next_Group              
-  | XK_ISO_Next_Group_Lock         
-  | XK_ISO_Prev_Group              
-  | XK_ISO_Prev_Group_Lock         
-  | XK_ISO_First_Group             
-  | XK_ISO_First_Group_Lock        
-  | XK_ISO_Last_Group              
-  | XK_ISO_Last_Group_Lock         
+  | XK_ISO_Group_Latch
+  | XK_ISO_Group_Lock
+  | XK_ISO_Next_Group
+  | XK_ISO_Next_Group_Lock
+  | XK_ISO_Prev_Group
+  | XK_ISO_Prev_Group_Lock
+  | XK_ISO_First_Group
+  | XK_ISO_First_Group_Lock
+  | XK_ISO_Last_Group
+  | XK_ISO_Last_Group_Lock
 
-  | XK_ISO_Left_Tab                
-  | XK_ISO_Move_Line_Up            
-  | XK_ISO_Move_Line_Down          
-  | XK_ISO_Partial_Line_Up         
-  | XK_ISO_Partial_Line_Down       
-  | XK_ISO_Partial_Space_Left      
-  | XK_ISO_Partial_Space_Right     
-  | XK_ISO_Set_Margin_Left         
-  | XK_ISO_Set_Margin_Right        
-  | XK_ISO_Release_Margin_Left     
-  | XK_ISO_Release_Margin_Right    
-  | XK_ISO_Release_Both_Margins    
-  | XK_ISO_Fast_Cursor_Left        
-  | XK_ISO_Fast_Cursor_Right       
-  | XK_ISO_Fast_Cursor_Up          
-  | XK_ISO_Fast_Cursor_Down        
-  | XK_ISO_Continuous_Underline    
-  | XK_ISO_Discontinuous_Underline 
-  | XK_ISO_Emphasize               
-  | XK_ISO_Center_Object           
-  | XK_ISO_Enter                   
+  | XK_ISO_Left_Tab
+  | XK_ISO_Move_Line_Up
+  | XK_ISO_Move_Line_Down
+  | XK_ISO_Partial_Line_Up
+  | XK_ISO_Partial_Line_Down
+  | XK_ISO_Partial_Space_Left
+  | XK_ISO_Partial_Space_Right
+  | XK_ISO_Set_Margin_Left
+  | XK_ISO_Set_Margin_Right
+  | XK_ISO_Release_Margin_Left
+  | XK_ISO_Release_Margin_Right
+  | XK_ISO_Release_Both_Margins
+  | XK_ISO_Fast_Cursor_Left
+  | XK_ISO_Fast_Cursor_Right
+  | XK_ISO_Fast_Cursor_Up
+  | XK_ISO_Fast_Cursor_Down
+  | XK_ISO_Continuous_Underline
+  | XK_ISO_Discontinuous_Underline
+  | XK_ISO_Emphasize
+  | XK_ISO_Center_Object
+  | XK_ISO_Enter
 
-  | XK_dead_grave                  
-  | XK_dead_acute                  
-  | XK_dead_circumflex             
-  | XK_dead_tilde                  
-  | XK_dead_macron                 
-  | XK_dead_breve                  
-  | XK_dead_abovedot               
-  | XK_dead_diaeresis              
-  | XK_dead_abovering              
-  | XK_dead_doubleacute            
-  | XK_dead_caron                  
-  | XK_dead_cedilla                
-  | XK_dead_ogonek                 
-  | XK_dead_iota                   
-  | XK_dead_voiced_sound           
-  | XK_dead_semivoiced_sound       
-  | XK_dead_belowdot               
-  | XK_dead_hook                   
-  | XK_dead_horn                   
+  | XK_dead_grave
+  | XK_dead_acute
+  | XK_dead_circumflex
+  | XK_dead_tilde
+  | XK_dead_macron
+  | XK_dead_breve
+  | XK_dead_abovedot
+  | XK_dead_diaeresis
+  | XK_dead_abovering
+  | XK_dead_doubleacute
+  | XK_dead_caron
+  | XK_dead_cedilla
+  | XK_dead_ogonek
+  | XK_dead_iota
+  | XK_dead_voiced_sound
+  | XK_dead_semivoiced_sound
+  | XK_dead_belowdot
+  | XK_dead_hook
+  | XK_dead_horn
 
-  | XK_First_Virtual_Screen        
-  | XK_Prev_Virtual_Screen         
-  | XK_Next_Virtual_Screen         
-  | XK_Last_Virtual_Screen         
-  | XK_Terminate_Server            
+  | XK_First_Virtual_Screen
+  | XK_Prev_Virtual_Screen
+  | XK_Next_Virtual_Screen
+  | XK_Last_Virtual_Screen
+  | XK_Terminate_Server
 
-  | XK_AccessX_Enable              
-  | XK_AccessX_Feedback_Enable     
-  | XK_RepeatKeys_Enable           
-  | XK_SlowKeys_Enable             
-  | XK_BounceKeys_Enable           
-  | XK_StickyKeys_Enable           
-  | XK_MouseKeys_Enable            
-  | XK_MouseKeys_Accel_Enable      
-  | XK_Overlay1_Enable             
-  | XK_Overlay2_Enable             
-  | XK_AudibleBell_Enable          
+  | XK_AccessX_Enable
+  | XK_AccessX_Feedback_Enable
+  | XK_RepeatKeys_Enable
+  | XK_SlowKeys_Enable
+  | XK_BounceKeys_Enable
+  | XK_StickyKeys_Enable
+  | XK_MouseKeys_Enable
+  | XK_MouseKeys_Accel_Enable
+  | XK_Overlay1_Enable
+  | XK_Overlay2_Enable
+  | XK_AudibleBell_Enable
 
-  | XK_Pointer_Left                
-  | XK_Pointer_Right               
-  | XK_Pointer_Up                  
-  | XK_Pointer_Down                
-  | XK_Pointer_UpLeft              
-  | XK_Pointer_UpRight             
-  | XK_Pointer_DownLeft            
-  | XK_Pointer_DownRight           
-  | XK_Pointer_Button_Dflt         
-  | XK_Pointer_Button1             
-  | XK_Pointer_Button2             
-  | XK_Pointer_Button3             
-  | XK_Pointer_Button4             
-  | XK_Pointer_Button5             
-  | XK_Pointer_DblClick_Dflt       
-  | XK_Pointer_DblClick1           
-  | XK_Pointer_DblClick2           
-  | XK_Pointer_DblClick3           
-  | XK_Pointer_DblClick4           
-  | XK_Pointer_DblClick5           
-  | XK_Pointer_Drag_Dflt           
-  | XK_Pointer_Drag1               
-  | XK_Pointer_Drag2               
-  | XK_Pointer_Drag3               
-  | XK_Pointer_Drag4               
-  | XK_Pointer_Drag5               
+  | XK_Pointer_Left
+  | XK_Pointer_Right
+  | XK_Pointer_Up
+  | XK_Pointer_Down
+  | XK_Pointer_UpLeft
+  | XK_Pointer_UpRight
+  | XK_Pointer_DownLeft
+  | XK_Pointer_DownRight
+  | XK_Pointer_Button_Dflt
+  | XK_Pointer_Button1
+  | XK_Pointer_Button2
+  | XK_Pointer_Button3
+  | XK_Pointer_Button4
+  | XK_Pointer_Button5
+  | XK_Pointer_DblClick_Dflt
+  | XK_Pointer_DblClick1
+  | XK_Pointer_DblClick2
+  | XK_Pointer_DblClick3
+  | XK_Pointer_DblClick4
+  | XK_Pointer_DblClick5
+  | XK_Pointer_Drag_Dflt
+  | XK_Pointer_Drag1
+  | XK_Pointer_Drag2
+  | XK_Pointer_Drag3
+  | XK_Pointer_Drag4
+  | XK_Pointer_Drag5
 
-  | XK_Pointer_EnableKeys          
-  | XK_Pointer_Accelerate          
-  | XK_Pointer_DfltBtnNext         
-  | XK_Pointer_DfltBtnPrev         
+  | XK_Pointer_EnableKeys
+  | XK_Pointer_Accelerate
+  | XK_Pointer_DfltBtnNext
+  | XK_Pointer_DfltBtnPrev
 
 #endif /* XK_XKB_KEYS */
 
@@ -343,36 +343,36 @@ type keysym_var =
  *)
 
 #ifdef XK_3270
-  | XK_3270_Duplicate              
-  | XK_3270_FieldMark              
-  | XK_3270_Right2                 
-  | XK_3270_Left2                  
-  | XK_3270_BackTab                
-  | XK_3270_EraseEOF               
-  | XK_3270_EraseInput             
-  | XK_3270_Reset                  
-  | XK_3270_Quit                   
-  | XK_3270_PA1                    
-  | XK_3270_PA2                    
-  | XK_3270_PA3                    
-  | XK_3270_Test                   
-  | XK_3270_Attn                   
-  | XK_3270_CursorBlink            
-  | XK_3270_AltCursor              
-  | XK_3270_KeyClick               
-  | XK_3270_Jump                   
-  | XK_3270_Ident                  
-  | XK_3270_Rule                   
-  | XK_3270_Copy                   
-  | XK_3270_Play                   
-  | XK_3270_Setup                  
-  | XK_3270_Record                 
-  | XK_3270_ChangeScreen           
-  | XK_3270_DeleteWord             
-  | XK_3270_ExSelect               
-  | XK_3270_CursorSelect           
-  | XK_3270_PrintScreen            
-  | XK_3270_Enter                  
+  | XK_3270_Duplicate
+  | XK_3270_FieldMark
+  | XK_3270_Right2
+  | XK_3270_Left2
+  | XK_3270_BackTab
+  | XK_3270_EraseEOF
+  | XK_3270_EraseInput
+  | XK_3270_Reset
+  | XK_3270_Quit
+  | XK_3270_PA1
+  | XK_3270_PA2
+  | XK_3270_PA3
+  | XK_3270_Test
+  | XK_3270_Attn
+  | XK_3270_CursorBlink
+  | XK_3270_AltCursor
+  | XK_3270_KeyClick
+  | XK_3270_Jump
+  | XK_3270_Ident
+  | XK_3270_Rule
+  | XK_3270_Copy
+  | XK_3270_Play
+  | XK_3270_Setup
+  | XK_3270_Record
+  | XK_3270_ChangeScreen
+  | XK_3270_DeleteWord
+  | XK_3270_ExSelect
+  | XK_3270_CursorSelect
+  | XK_3270_PrintScreen
+  | XK_3270_Enter
 #endif /* XK_3270 */
 
 (*
@@ -968,7 +968,7 @@ type keysym_var =
   | XK_Cyrillic_che_vertstroke    (* U+04B9 CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE *)
   | XK_Cyrillic_SHHA              (* U+04BA CYRILLIC CAPITAL LETTER SHHA *)
   | XK_Cyrillic_shha              (* U+04BB CYRILLIC SMALL LETTER SHHA *)
-    
+
   | XK_Cyrillic_SCHWA             (* U+04D8 CYRILLIC CAPITAL LETTER SCHWA *)
   | XK_Cyrillic_schwa             (* U+04D9 CYRILLIC SMALL LETTER SCHWA *)
   | XK_Cyrillic_I_macron          (* U+04E2 CYRILLIC CAPITAL LETTER I WITH MACRON *)
@@ -1196,13 +1196,13 @@ type keysym_var =
   | XK_botrightparens                (* U+23A0 RIGHT PARENTHESIS LOWER HOOK *)
   | XK_leftmiddlecurlybrace          (* U+23A8 LEFT CURLY BRACKET MIDDLE PIECE *)
   | XK_rightmiddlecurlybrace         (* U+23AC RIGHT CURLY BRACKET MIDDLE PIECE *)
-  | XK_topleftsummation            
-  | XK_botleftsummation            
-  | XK_topvertsummationconnector   
-  | XK_botvertsummationconnector   
-  | XK_toprightsummation           
-  | XK_botrightsummation           
-  | XK_rightmiddlesummation        
+  | XK_topleftsummation
+  | XK_botleftsummation
+  | XK_topvertsummationconnector
+  | XK_botvertsummationconnector
+  | XK_toprightsummation
+  | XK_botrightsummation
+  | XK_rightmiddlesummation
   | XK_lessthanequal                 (* U+2264 LESS-THAN OR EQUAL TO *)
   | XK_notequal                      (* U+2260 NOT EQUAL TO *)
   | XK_greaterthanequal              (* U+2265 GREATER-THAN OR EQUAL TO *)
@@ -1238,7 +1238,7 @@ type keysym_var =
  *)
 
 #ifdef XK_SPECIAL
-  | XK_blank                       
+  | XK_blank
   | XK_soliddiamond                  (* U+25C6 BLACK DIAMOND *)
   | XK_checkerboard                  (* U+2592 MEDIUM SHADE *)
   | XK_ht                            (* U+2409 SYMBOL FOR HORIZONTAL TABULATION *)
@@ -1298,14 +1298,14 @@ type keysym_var =
   | XK_leftanglebracket              (*(U+27E8 MATHEMATICAL LEFT ANGLE BRACKET)*)
   | XK_decimalpoint                  (*(U+002E FULL STOP)*)
   | XK_rightanglebracket             (*(U+27E9 MATHEMATICAL RIGHT ANGLE BRACKET)*)
-  | XK_marker                      
+  | XK_marker
   | XK_oneeighth                     (* U+215B VULGAR FRACTION ONE EIGHTH *)
   | XK_threeeighths                  (* U+215C VULGAR FRACTION THREE EIGHTHS *)
   | XK_fiveeighths                   (* U+215D VULGAR FRACTION FIVE EIGHTHS *)
   | XK_seveneighths                  (* U+215E VULGAR FRACTION SEVEN EIGHTHS *)
   | XK_trademark                     (* U+2122 TRADE MARK SIGN *)
   | XK_signaturemark                 (*(U+2613 SALTIRE)*)
-  | XK_trademarkincircle           
+  | XK_trademarkincircle
   | XK_leftopentriangle              (*(U+25C1 WHITE LEFT-POINTING TRIANGLE)*)
   | XK_rightopentriangle             (*(U+25B7 WHITE RIGHT-POINTING TRIANGLE)*)
   | XK_emopencircle                  (*(U+25CB WHITE CIRCLE)*)
@@ -1318,7 +1318,7 @@ type keysym_var =
   | XK_minutes                       (* U+2032 PRIME *)
   | XK_seconds                       (* U+2033 DOUBLE PRIME *)
   | XK_latincross                    (* U+271D LATIN CROSS *)
-  | XK_hexagram                    
+  | XK_hexagram
   | XK_filledrectbullet              (*(U+25AC BLACK RECTANGLE)*)
   | XK_filledlefttribullet           (*(U+25C0 BLACK LEFT-POINTING TRIANGLE)*)
   | XK_filledrighttribullet          (*(U+25B6 BLACK RIGHT-POINTING TRIANGLE)*)
@@ -1354,7 +1354,7 @@ type keysym_var =
   | XK_caret                         (* U+2038 CARET *)
   | XK_singlelowquotemark            (* U+201A SINGLE LOW-9 QUOTATION MARK *)
   | XK_doublelowquotemark            (* U+201E DOUBLE LOW-9 QUOTATION MARK *)
-  | XK_cursor                      
+  | XK_cursor
 #endif /* XK_PUBLISHING */
 
 (*
@@ -1496,7 +1496,7 @@ type keysym_var =
   | XK_Thai_sarau                    (* U+0E38 THAI CHARACTER SARA U *)
   | XK_Thai_sarauu                   (* U+0E39 THAI CHARACTER SARA UU *)
   | XK_Thai_phinthu                  (* U+0E3A THAI CHARACTER PHINTHU *)
-  | XK_Thai_maihanakat_maitho      
+  | XK_Thai_maihanakat_maitho
   | XK_Thai_baht                     (* U+0E3F THAI CURRENCY SYMBOL BAHT *)
   | XK_Thai_sarae                    (* U+0E40 THAI CHARACTER SARA E *)
   | XK_Thai_saraae                   (* U+0E41 THAI CHARACTER SARA AE *)
@@ -1549,106 +1549,106 @@ type keysym_var =
   | XK_Hangul_switch                 (* Alias for mode_switch *)
 
 (* Hangul Consonant Characters *)
-  | XK_Hangul_Kiyeog               
-  | XK_Hangul_SsangKiyeog          
-  | XK_Hangul_KiyeogSios           
-  | XK_Hangul_Nieun                
-  | XK_Hangul_NieunJieuj           
-  | XK_Hangul_NieunHieuh           
-  | XK_Hangul_Dikeud               
-  | XK_Hangul_SsangDikeud          
-  | XK_Hangul_Rieul                
-  | XK_Hangul_RieulKiyeog          
-  | XK_Hangul_RieulMieum           
-  | XK_Hangul_RieulPieub           
-  | XK_Hangul_RieulSios            
-  | XK_Hangul_RieulTieut           
-  | XK_Hangul_RieulPhieuf          
-  | XK_Hangul_RieulHieuh           
-  | XK_Hangul_Mieum                
-  | XK_Hangul_Pieub                
-  | XK_Hangul_SsangPieub           
-  | XK_Hangul_PieubSios            
-  | XK_Hangul_Sios                 
-  | XK_Hangul_SsangSios            
-  | XK_Hangul_Ieung                
-  | XK_Hangul_Jieuj                
-  | XK_Hangul_SsangJieuj           
-  | XK_Hangul_Cieuc                
-  | XK_Hangul_Khieuq               
-  | XK_Hangul_Tieut                
-  | XK_Hangul_Phieuf               
-  | XK_Hangul_Hieuh                
+  | XK_Hangul_Kiyeog
+  | XK_Hangul_SsangKiyeog
+  | XK_Hangul_KiyeogSios
+  | XK_Hangul_Nieun
+  | XK_Hangul_NieunJieuj
+  | XK_Hangul_NieunHieuh
+  | XK_Hangul_Dikeud
+  | XK_Hangul_SsangDikeud
+  | XK_Hangul_Rieul
+  | XK_Hangul_RieulKiyeog
+  | XK_Hangul_RieulMieum
+  | XK_Hangul_RieulPieub
+  | XK_Hangul_RieulSios
+  | XK_Hangul_RieulTieut
+  | XK_Hangul_RieulPhieuf
+  | XK_Hangul_RieulHieuh
+  | XK_Hangul_Mieum
+  | XK_Hangul_Pieub
+  | XK_Hangul_SsangPieub
+  | XK_Hangul_PieubSios
+  | XK_Hangul_Sios
+  | XK_Hangul_SsangSios
+  | XK_Hangul_Ieung
+  | XK_Hangul_Jieuj
+  | XK_Hangul_SsangJieuj
+  | XK_Hangul_Cieuc
+  | XK_Hangul_Khieuq
+  | XK_Hangul_Tieut
+  | XK_Hangul_Phieuf
+  | XK_Hangul_Hieuh
 
 (* Hangul Vowel Characters *)
-  | XK_Hangul_A                    
-  | XK_Hangul_AE                   
-  | XK_Hangul_YA                   
-  | XK_Hangul_YAE                  
-  | XK_Hangul_EO                   
-  | XK_Hangul_E                    
-  | XK_Hangul_YEO                  
-  | XK_Hangul_YE                   
-  | XK_Hangul_O                    
-  | XK_Hangul_WA                   
-  | XK_Hangul_WAE                  
-  | XK_Hangul_OE                   
-  | XK_Hangul_YO                   
-  | XK_Hangul_U                    
-  | XK_Hangul_WEO                  
-  | XK_Hangul_WE                   
-  | XK_Hangul_WI                   
-  | XK_Hangul_YU                   
-  | XK_Hangul_EU                   
-  | XK_Hangul_YI                   
-  | XK_Hangul_I                    
+  | XK_Hangul_A
+  | XK_Hangul_AE
+  | XK_Hangul_YA
+  | XK_Hangul_YAE
+  | XK_Hangul_EO
+  | XK_Hangul_E
+  | XK_Hangul_YEO
+  | XK_Hangul_YE
+  | XK_Hangul_O
+  | XK_Hangul_WA
+  | XK_Hangul_WAE
+  | XK_Hangul_OE
+  | XK_Hangul_YO
+  | XK_Hangul_U
+  | XK_Hangul_WEO
+  | XK_Hangul_WE
+  | XK_Hangul_WI
+  | XK_Hangul_YU
+  | XK_Hangul_EU
+  | XK_Hangul_YI
+  | XK_Hangul_I
 
 (* Hangul syllable-final (JongSeong) Characters *)
-  | XK_Hangul_J_Kiyeog             
-  | XK_Hangul_J_SsangKiyeog        
-  | XK_Hangul_J_KiyeogSios         
-  | XK_Hangul_J_Nieun              
-  | XK_Hangul_J_NieunJieuj         
-  | XK_Hangul_J_NieunHieuh         
-  | XK_Hangul_J_Dikeud             
-  | XK_Hangul_J_Rieul              
-  | XK_Hangul_J_RieulKiyeog        
-  | XK_Hangul_J_RieulMieum         
-  | XK_Hangul_J_RieulPieub         
-  | XK_Hangul_J_RieulSios          
-  | XK_Hangul_J_RieulTieut         
-  | XK_Hangul_J_RieulPhieuf        
-  | XK_Hangul_J_RieulHieuh         
-  | XK_Hangul_J_Mieum              
-  | XK_Hangul_J_Pieub              
-  | XK_Hangul_J_PieubSios          
-  | XK_Hangul_J_Sios               
-  | XK_Hangul_J_SsangSios          
-  | XK_Hangul_J_Ieung              
-  | XK_Hangul_J_Jieuj              
-  | XK_Hangul_J_Cieuc              
-  | XK_Hangul_J_Khieuq             
-  | XK_Hangul_J_Tieut              
-  | XK_Hangul_J_Phieuf             
-  | XK_Hangul_J_Hieuh              
+  | XK_Hangul_J_Kiyeog
+  | XK_Hangul_J_SsangKiyeog
+  | XK_Hangul_J_KiyeogSios
+  | XK_Hangul_J_Nieun
+  | XK_Hangul_J_NieunJieuj
+  | XK_Hangul_J_NieunHieuh
+  | XK_Hangul_J_Dikeud
+  | XK_Hangul_J_Rieul
+  | XK_Hangul_J_RieulKiyeog
+  | XK_Hangul_J_RieulMieum
+  | XK_Hangul_J_RieulPieub
+  | XK_Hangul_J_RieulSios
+  | XK_Hangul_J_RieulTieut
+  | XK_Hangul_J_RieulPhieuf
+  | XK_Hangul_J_RieulHieuh
+  | XK_Hangul_J_Mieum
+  | XK_Hangul_J_Pieub
+  | XK_Hangul_J_PieubSios
+  | XK_Hangul_J_Sios
+  | XK_Hangul_J_SsangSios
+  | XK_Hangul_J_Ieung
+  | XK_Hangul_J_Jieuj
+  | XK_Hangul_J_Cieuc
+  | XK_Hangul_J_Khieuq
+  | XK_Hangul_J_Tieut
+  | XK_Hangul_J_Phieuf
+  | XK_Hangul_J_Hieuh
 
 (* Ancient Hangul Consonant Characters *)
-  | XK_Hangul_RieulYeorinHieuh     
-  | XK_Hangul_SunkyeongeumMieum    
-  | XK_Hangul_SunkyeongeumPieub    
-  | XK_Hangul_PanSios              
-  | XK_Hangul_KkogjiDalrinIeung    
-  | XK_Hangul_SunkyeongeumPhieuf   
-  | XK_Hangul_YeorinHieuh          
+  | XK_Hangul_RieulYeorinHieuh
+  | XK_Hangul_SunkyeongeumMieum
+  | XK_Hangul_SunkyeongeumPieub
+  | XK_Hangul_PanSios
+  | XK_Hangul_KkogjiDalrinIeung
+  | XK_Hangul_SunkyeongeumPhieuf
+  | XK_Hangul_YeorinHieuh
 
 (* Ancient Hangul Vowel Characters *)
-  | XK_Hangul_AraeA                
-  | XK_Hangul_AraeAE               
+  | XK_Hangul_AraeA
+  | XK_Hangul_AraeAE
 
 (* Ancient Hangul syllable-final (JongSeong) Characters *)
-  | XK_Hangul_J_PanSios            
-  | XK_Hangul_J_KkogjiDalrinIeung  
-  | XK_Hangul_J_YeorinHieuh        
+  | XK_Hangul_J_PanSios
+  | XK_Hangul_J_KkogjiDalrinIeung
+  | XK_Hangul_J_YeorinHieuh
 
 (* Korean currency symbol *)
   | XK_Korean_Won                    (*(U+20A9 WON SIGN)*)
@@ -1827,7 +1827,7 @@ type keysym_var =
 (*
  * Vietnamese
  *)
- 
+
 #ifdef XK_VIETNAMESE
   | XK_Abelowdot                  (* U+1EA0 LATIN CAPITAL LETTER A WITH DOT BELOW *)
   | XK_abelowdot                  (* U+1EA1 LATIN SMALL LETTER A WITH DOT BELOW *)
@@ -1963,14 +1963,14 @@ let keysym_var = function
  *)
 
   | 0xff08 -> XK_BackSpace                     (* Back space, back char *)
-  | 0xff09 -> XK_Tab                         
+  | 0xff09 -> XK_Tab
   | 0xff0a -> XK_Linefeed                      (* Linefeed, LF *)
-  | 0xff0b -> XK_Clear                       
+  | 0xff0b -> XK_Clear
   | 0xff0d -> XK_Return                        (* Return, enter *)
   | 0xff13 -> XK_Pause                         (* Pause, hold *)
-  | 0xff14 -> XK_Scroll_Lock                 
-  | 0xff15 -> XK_Sys_Req                     
-  | 0xff1b -> XK_Escape                      
+  | 0xff14 -> XK_Scroll_Lock
+  | 0xff15 -> XK_Sys_Req
+  | 0xff1b -> XK_Escape
   | 0xffff -> XK_Delete                        (* Delete, rubout *)
 
 
@@ -1978,10 +1978,10 @@ let keysym_var = function
 (* International & multi-key character composition *)
 
   | 0xff20 -> XK_Multi_key                     (* Multi-key character compose *)
-  | 0xff37 -> XK_Codeinput                   
-  | 0xff3c -> XK_SingleCandidate             
-  | 0xff3d -> XK_MultipleCandidate           
-  | 0xff3e -> XK_PreviousCandidate           
+  | 0xff37 -> XK_Codeinput
+  | 0xff3c -> XK_SingleCandidate
+  | 0xff3d -> XK_MultipleCandidate
+  | 0xff3e -> XK_PreviousCandidate
 
 (* Japanese keyboard support *)
 
@@ -2010,7 +2010,7 @@ let keysym_var = function
 
 (* Cursor control & motion *)
 
-  | 0xff50 -> XK_Home                         
+  | 0xff50 -> XK_Home
   | 0xff51 -> XK_Left                          (* Move left, left arrow *)
   | 0xff52 -> XK_Up                            (* Move up, up arrow *)
   | 0xff53 -> XK_Right                         (* Move right, right arrow *)
@@ -2026,7 +2026,7 @@ let keysym_var = function
 (* Misc functions *)
 
   | 0xff60 -> XK_Select                        (* Select, mark *)
-  | 0xff61 -> XK_Print                       
+  | 0xff61 -> XK_Print
   | 0xff62 -> XK_Execute                       (* Execute, run, do *)
   | 0xff63 -> XK_Insert                        (* Insert, insert here *)
   | 0xff65 -> XK_Undo
@@ -2043,43 +2043,43 @@ let keysym_var = function
 (* Keypad functions, keypad numbers cleverly chosen to map to ASCII *)
 
   | 0xff80 -> XK_KP_Space                      (* Space *)
-  | 0xff89 -> XK_KP_Tab                      
+  | 0xff89 -> XK_KP_Tab
   | 0xff8d -> XK_KP_Enter                      (* Enter *)
   | 0xff91 -> XK_KP_F1                         (* PF1, KP_A, ... *)
-  | 0xff92 -> XK_KP_F2                       
-  | 0xff93 -> XK_KP_F3                       
-  | 0xff94 -> XK_KP_F4                       
-  | 0xff95 -> XK_KP_Home                     
-  | 0xff96 -> XK_KP_Left                     
-  | 0xff97 -> XK_KP_Up                       
-  | 0xff98 -> XK_KP_Right                    
-  | 0xff99 -> XK_KP_Down                     
-  | 0xff9a -> XK_KP_Prior                    
-  | 0xff9a -> XK_KP_Page_Up                  
-  | 0xff9b -> XK_KP_Next                     
-  | 0xff9b -> XK_KP_Page_Down                
-  | 0xff9c -> XK_KP_End                      
-  | 0xff9d -> XK_KP_Begin                    
-  | 0xff9e -> XK_KP_Insert                   
-  | 0xff9f -> XK_KP_Delete                   
+  | 0xff92 -> XK_KP_F2
+  | 0xff93 -> XK_KP_F3
+  | 0xff94 -> XK_KP_F4
+  | 0xff95 -> XK_KP_Home
+  | 0xff96 -> XK_KP_Left
+  | 0xff97 -> XK_KP_Up
+  | 0xff98 -> XK_KP_Right
+  | 0xff99 -> XK_KP_Down
+  | 0xff9a -> XK_KP_Prior
+  | 0xff9a -> XK_KP_Page_Up
+  | 0xff9b -> XK_KP_Next
+  | 0xff9b -> XK_KP_Page_Down
+  | 0xff9c -> XK_KP_End
+  | 0xff9d -> XK_KP_Begin
+  | 0xff9e -> XK_KP_Insert
+  | 0xff9f -> XK_KP_Delete
   | 0xffbd -> XK_KP_Equal                      (* Equals *)
-  | 0xffaa -> XK_KP_Multiply                 
-  | 0xffab -> XK_KP_Add                      
+  | 0xffaa -> XK_KP_Multiply
+  | 0xffab -> XK_KP_Add
   | 0xffac -> XK_KP_Separator                  (* Separator, often comma *)
-  | 0xffad -> XK_KP_Subtract                 
-  | 0xffae -> XK_KP_Decimal                  
-  | 0xffaf -> XK_KP_Divide                   
+  | 0xffad -> XK_KP_Subtract
+  | 0xffae -> XK_KP_Decimal
+  | 0xffaf -> XK_KP_Divide
 
-  | 0xffb0 -> XK_KP_0                        
-  | 0xffb1 -> XK_KP_1                        
-  | 0xffb2 -> XK_KP_2                        
-  | 0xffb3 -> XK_KP_3                        
-  | 0xffb4 -> XK_KP_4                        
-  | 0xffb5 -> XK_KP_5                        
-  | 0xffb6 -> XK_KP_6                        
-  | 0xffb7 -> XK_KP_7                        
-  | 0xffb8 -> XK_KP_8                        
-  | 0xffb9 -> XK_KP_9                        
+  | 0xffb0 -> XK_KP_0
+  | 0xffb1 -> XK_KP_1
+  | 0xffb2 -> XK_KP_2
+  | 0xffb3 -> XK_KP_3
+  | 0xffb4 -> XK_KP_4
+  | 0xffb5 -> XK_KP_5
+  | 0xffb6 -> XK_KP_6
+  | 0xffb7 -> XK_KP_7
+  | 0xffb8 -> XK_KP_8
+  | 0xffb9 -> XK_KP_9
 
 
 
@@ -2177,114 +2177,114 @@ let keysym_var = function
  *)
 
 #ifdef XK_XKB_KEYS
-  | 0xfe01 -> XK_ISO_Lock                    
-  | 0xfe02 -> XK_ISO_Level2_Latch            
-  | 0xfe03 -> XK_ISO_Level3_Shift            
-  | 0xfe04 -> XK_ISO_Level3_Latch            
-  | 0xfe05 -> XK_ISO_Level3_Lock             
+  | 0xfe01 -> XK_ISO_Lock
+  | 0xfe02 -> XK_ISO_Level2_Latch
+  | 0xfe03 -> XK_ISO_Level3_Shift
+  | 0xfe04 -> XK_ISO_Level3_Latch
+  | 0xfe05 -> XK_ISO_Level3_Lock
   | 0xff7e -> XK_ISO_Group_Shift               (* Alias for mode_switch *)
-  | 0xfe06 -> XK_ISO_Group_Latch             
-  | 0xfe07 -> XK_ISO_Group_Lock              
-  | 0xfe08 -> XK_ISO_Next_Group              
-  | 0xfe09 -> XK_ISO_Next_Group_Lock         
-  | 0xfe0a -> XK_ISO_Prev_Group              
-  | 0xfe0b -> XK_ISO_Prev_Group_Lock         
-  | 0xfe0c -> XK_ISO_First_Group             
-  | 0xfe0d -> XK_ISO_First_Group_Lock        
-  | 0xfe0e -> XK_ISO_Last_Group              
-  | 0xfe0f -> XK_ISO_Last_Group_Lock         
+  | 0xfe06 -> XK_ISO_Group_Latch
+  | 0xfe07 -> XK_ISO_Group_Lock
+  | 0xfe08 -> XK_ISO_Next_Group
+  | 0xfe09 -> XK_ISO_Next_Group_Lock
+  | 0xfe0a -> XK_ISO_Prev_Group
+  | 0xfe0b -> XK_ISO_Prev_Group_Lock
+  | 0xfe0c -> XK_ISO_First_Group
+  | 0xfe0d -> XK_ISO_First_Group_Lock
+  | 0xfe0e -> XK_ISO_Last_Group
+  | 0xfe0f -> XK_ISO_Last_Group_Lock
 
-  | 0xfe20 -> XK_ISO_Left_Tab                
-  | 0xfe21 -> XK_ISO_Move_Line_Up            
-  | 0xfe22 -> XK_ISO_Move_Line_Down          
-  | 0xfe23 -> XK_ISO_Partial_Line_Up         
-  | 0xfe24 -> XK_ISO_Partial_Line_Down       
-  | 0xfe25 -> XK_ISO_Partial_Space_Left      
-  | 0xfe26 -> XK_ISO_Partial_Space_Right     
-  | 0xfe27 -> XK_ISO_Set_Margin_Left         
-  | 0xfe28 -> XK_ISO_Set_Margin_Right        
-  | 0xfe29 -> XK_ISO_Release_Margin_Left     
-  | 0xfe2a -> XK_ISO_Release_Margin_Right    
-  | 0xfe2b -> XK_ISO_Release_Both_Margins    
-  | 0xfe2c -> XK_ISO_Fast_Cursor_Left        
-  | 0xfe2d -> XK_ISO_Fast_Cursor_Right       
-  | 0xfe2e -> XK_ISO_Fast_Cursor_Up          
-  | 0xfe2f -> XK_ISO_Fast_Cursor_Down        
-  | 0xfe30 -> XK_ISO_Continuous_Underline    
-  | 0xfe31 -> XK_ISO_Discontinuous_Underline 
-  | 0xfe32 -> XK_ISO_Emphasize               
-  | 0xfe33 -> XK_ISO_Center_Object           
-  | 0xfe34 -> XK_ISO_Enter                   
+  | 0xfe20 -> XK_ISO_Left_Tab
+  | 0xfe21 -> XK_ISO_Move_Line_Up
+  | 0xfe22 -> XK_ISO_Move_Line_Down
+  | 0xfe23 -> XK_ISO_Partial_Line_Up
+  | 0xfe24 -> XK_ISO_Partial_Line_Down
+  | 0xfe25 -> XK_ISO_Partial_Space_Left
+  | 0xfe26 -> XK_ISO_Partial_Space_Right
+  | 0xfe27 -> XK_ISO_Set_Margin_Left
+  | 0xfe28 -> XK_ISO_Set_Margin_Right
+  | 0xfe29 -> XK_ISO_Release_Margin_Left
+  | 0xfe2a -> XK_ISO_Release_Margin_Right
+  | 0xfe2b -> XK_ISO_Release_Both_Margins
+  | 0xfe2c -> XK_ISO_Fast_Cursor_Left
+  | 0xfe2d -> XK_ISO_Fast_Cursor_Right
+  | 0xfe2e -> XK_ISO_Fast_Cursor_Up
+  | 0xfe2f -> XK_ISO_Fast_Cursor_Down
+  | 0xfe30 -> XK_ISO_Continuous_Underline
+  | 0xfe31 -> XK_ISO_Discontinuous_Underline
+  | 0xfe32 -> XK_ISO_Emphasize
+  | 0xfe33 -> XK_ISO_Center_Object
+  | 0xfe34 -> XK_ISO_Enter
 
-  | 0xfe50 -> XK_dead_grave                  
-  | 0xfe51 -> XK_dead_acute                  
-  | 0xfe52 -> XK_dead_circumflex             
-  | 0xfe53 -> XK_dead_tilde                  
-  | 0xfe54 -> XK_dead_macron                 
-  | 0xfe55 -> XK_dead_breve                  
-  | 0xfe56 -> XK_dead_abovedot               
-  | 0xfe57 -> XK_dead_diaeresis              
-  | 0xfe58 -> XK_dead_abovering              
-  | 0xfe59 -> XK_dead_doubleacute            
-  | 0xfe5a -> XK_dead_caron                  
-  | 0xfe5b -> XK_dead_cedilla                
-  | 0xfe5c -> XK_dead_ogonek                 
-  | 0xfe5d -> XK_dead_iota                   
-  | 0xfe5e -> XK_dead_voiced_sound           
-  | 0xfe5f -> XK_dead_semivoiced_sound       
-  | 0xfe60 -> XK_dead_belowdot               
-  | 0xfe61 -> XK_dead_hook                   
-  | 0xfe62 -> XK_dead_horn                   
+  | 0xfe50 -> XK_dead_grave
+  | 0xfe51 -> XK_dead_acute
+  | 0xfe52 -> XK_dead_circumflex
+  | 0xfe53 -> XK_dead_tilde
+  | 0xfe54 -> XK_dead_macron
+  | 0xfe55 -> XK_dead_breve
+  | 0xfe56 -> XK_dead_abovedot
+  | 0xfe57 -> XK_dead_diaeresis
+  | 0xfe58 -> XK_dead_abovering
+  | 0xfe59 -> XK_dead_doubleacute
+  | 0xfe5a -> XK_dead_caron
+  | 0xfe5b -> XK_dead_cedilla
+  | 0xfe5c -> XK_dead_ogonek
+  | 0xfe5d -> XK_dead_iota
+  | 0xfe5e -> XK_dead_voiced_sound
+  | 0xfe5f -> XK_dead_semivoiced_sound
+  | 0xfe60 -> XK_dead_belowdot
+  | 0xfe61 -> XK_dead_hook
+  | 0xfe62 -> XK_dead_horn
 
-  | 0xfed0 -> XK_First_Virtual_Screen        
-  | 0xfed1 -> XK_Prev_Virtual_Screen         
-  | 0xfed2 -> XK_Next_Virtual_Screen         
-  | 0xfed4 -> XK_Last_Virtual_Screen         
-  | 0xfed5 -> XK_Terminate_Server            
+  | 0xfed0 -> XK_First_Virtual_Screen
+  | 0xfed1 -> XK_Prev_Virtual_Screen
+  | 0xfed2 -> XK_Next_Virtual_Screen
+  | 0xfed4 -> XK_Last_Virtual_Screen
+  | 0xfed5 -> XK_Terminate_Server
 
-  | 0xfe70 -> XK_AccessX_Enable              
-  | 0xfe71 -> XK_AccessX_Feedback_Enable     
-  | 0xfe72 -> XK_RepeatKeys_Enable           
-  | 0xfe73 -> XK_SlowKeys_Enable             
-  | 0xfe74 -> XK_BounceKeys_Enable           
-  | 0xfe75 -> XK_StickyKeys_Enable           
-  | 0xfe76 -> XK_MouseKeys_Enable            
-  | 0xfe77 -> XK_MouseKeys_Accel_Enable      
-  | 0xfe78 -> XK_Overlay1_Enable             
-  | 0xfe79 -> XK_Overlay2_Enable             
-  | 0xfe7a -> XK_AudibleBell_Enable          
+  | 0xfe70 -> XK_AccessX_Enable
+  | 0xfe71 -> XK_AccessX_Feedback_Enable
+  | 0xfe72 -> XK_RepeatKeys_Enable
+  | 0xfe73 -> XK_SlowKeys_Enable
+  | 0xfe74 -> XK_BounceKeys_Enable
+  | 0xfe75 -> XK_StickyKeys_Enable
+  | 0xfe76 -> XK_MouseKeys_Enable
+  | 0xfe77 -> XK_MouseKeys_Accel_Enable
+  | 0xfe78 -> XK_Overlay1_Enable
+  | 0xfe79 -> XK_Overlay2_Enable
+  | 0xfe7a -> XK_AudibleBell_Enable
 
-  | 0xfee0 -> XK_Pointer_Left                
-  | 0xfee1 -> XK_Pointer_Right               
-  | 0xfee2 -> XK_Pointer_Up                  
-  | 0xfee3 -> XK_Pointer_Down                
-  | 0xfee4 -> XK_Pointer_UpLeft              
-  | 0xfee5 -> XK_Pointer_UpRight             
-  | 0xfee6 -> XK_Pointer_DownLeft            
-  | 0xfee7 -> XK_Pointer_DownRight           
-  | 0xfee8 -> XK_Pointer_Button_Dflt         
-  | 0xfee9 -> XK_Pointer_Button1             
-  | 0xfeea -> XK_Pointer_Button2             
-  | 0xfeeb -> XK_Pointer_Button3             
-  | 0xfeec -> XK_Pointer_Button4             
-  | 0xfeed -> XK_Pointer_Button5             
-  | 0xfeee -> XK_Pointer_DblClick_Dflt       
-  | 0xfeef -> XK_Pointer_DblClick1           
-  | 0xfef0 -> XK_Pointer_DblClick2           
-  | 0xfef1 -> XK_Pointer_DblClick3           
-  | 0xfef2 -> XK_Pointer_DblClick4           
-  | 0xfef3 -> XK_Pointer_DblClick5           
-  | 0xfef4 -> XK_Pointer_Drag_Dflt           
-  | 0xfef5 -> XK_Pointer_Drag1               
-  | 0xfef6 -> XK_Pointer_Drag2               
-  | 0xfef7 -> XK_Pointer_Drag3               
-  | 0xfef8 -> XK_Pointer_Drag4               
-  | 0xfefd -> XK_Pointer_Drag5               
+  | 0xfee0 -> XK_Pointer_Left
+  | 0xfee1 -> XK_Pointer_Right
+  | 0xfee2 -> XK_Pointer_Up
+  | 0xfee3 -> XK_Pointer_Down
+  | 0xfee4 -> XK_Pointer_UpLeft
+  | 0xfee5 -> XK_Pointer_UpRight
+  | 0xfee6 -> XK_Pointer_DownLeft
+  | 0xfee7 -> XK_Pointer_DownRight
+  | 0xfee8 -> XK_Pointer_Button_Dflt
+  | 0xfee9 -> XK_Pointer_Button1
+  | 0xfeea -> XK_Pointer_Button2
+  | 0xfeeb -> XK_Pointer_Button3
+  | 0xfeec -> XK_Pointer_Button4
+  | 0xfeed -> XK_Pointer_Button5
+  | 0xfeee -> XK_Pointer_DblClick_Dflt
+  | 0xfeef -> XK_Pointer_DblClick1
+  | 0xfef0 -> XK_Pointer_DblClick2
+  | 0xfef1 -> XK_Pointer_DblClick3
+  | 0xfef2 -> XK_Pointer_DblClick4
+  | 0xfef3 -> XK_Pointer_DblClick5
+  | 0xfef4 -> XK_Pointer_Drag_Dflt
+  | 0xfef5 -> XK_Pointer_Drag1
+  | 0xfef6 -> XK_Pointer_Drag2
+  | 0xfef7 -> XK_Pointer_Drag3
+  | 0xfef8 -> XK_Pointer_Drag4
+  | 0xfefd -> XK_Pointer_Drag5
 
-  | 0xfef9 -> XK_Pointer_EnableKeys          
-  | 0xfefa -> XK_Pointer_Accelerate          
-  | 0xfefb -> XK_Pointer_DfltBtnNext         
-  | 0xfefc -> XK_Pointer_DfltBtnPrev         
+  | 0xfef9 -> XK_Pointer_EnableKeys
+  | 0xfefa -> XK_Pointer_Accelerate
+  | 0xfefb -> XK_Pointer_DfltBtnNext
+  | 0xfefc -> XK_Pointer_DfltBtnPrev
 
 #endif /* XK_XKB_KEYS */
 
@@ -2294,36 +2294,36 @@ let keysym_var = function
  *)
 
 #ifdef XK_3270
-  | 0xfd01 -> XK_3270_Duplicate              
-  | 0xfd02 -> XK_3270_FieldMark              
-  | 0xfd03 -> XK_3270_Right2                 
-  | 0xfd04 -> XK_3270_Left2                  
-  | 0xfd05 -> XK_3270_BackTab                
-  | 0xfd06 -> XK_3270_EraseEOF               
-  | 0xfd07 -> XK_3270_EraseInput             
-  | 0xfd08 -> XK_3270_Reset                  
-  | 0xfd09 -> XK_3270_Quit                   
-  | 0xfd0a -> XK_3270_PA1                    
-  | 0xfd0b -> XK_3270_PA2                    
-  | 0xfd0c -> XK_3270_PA3                    
-  | 0xfd0d -> XK_3270_Test                   
-  | 0xfd0e -> XK_3270_Attn                   
-  | 0xfd0f -> XK_3270_CursorBlink            
-  | 0xfd10 -> XK_3270_AltCursor              
-  | 0xfd11 -> XK_3270_KeyClick               
-  | 0xfd12 -> XK_3270_Jump                   
-  | 0xfd13 -> XK_3270_Ident                  
-  | 0xfd14 -> XK_3270_Rule                   
-  | 0xfd15 -> XK_3270_Copy                   
-  | 0xfd16 -> XK_3270_Play                   
-  | 0xfd17 -> XK_3270_Setup                  
-  | 0xfd18 -> XK_3270_Record                 
-  | 0xfd19 -> XK_3270_ChangeScreen           
-  | 0xfd1a -> XK_3270_DeleteWord             
-  | 0xfd1b -> XK_3270_ExSelect               
-  | 0xfd1c -> XK_3270_CursorSelect           
-  | 0xfd1d -> XK_3270_PrintScreen            
-  | 0xfd1e -> XK_3270_Enter                  
+  | 0xfd01 -> XK_3270_Duplicate
+  | 0xfd02 -> XK_3270_FieldMark
+  | 0xfd03 -> XK_3270_Right2
+  | 0xfd04 -> XK_3270_Left2
+  | 0xfd05 -> XK_3270_BackTab
+  | 0xfd06 -> XK_3270_EraseEOF
+  | 0xfd07 -> XK_3270_EraseInput
+  | 0xfd08 -> XK_3270_Reset
+  | 0xfd09 -> XK_3270_Quit
+  | 0xfd0a -> XK_3270_PA1
+  | 0xfd0b -> XK_3270_PA2
+  | 0xfd0c -> XK_3270_PA3
+  | 0xfd0d -> XK_3270_Test
+  | 0xfd0e -> XK_3270_Attn
+  | 0xfd0f -> XK_3270_CursorBlink
+  | 0xfd10 -> XK_3270_AltCursor
+  | 0xfd11 -> XK_3270_KeyClick
+  | 0xfd12 -> XK_3270_Jump
+  | 0xfd13 -> XK_3270_Ident
+  | 0xfd14 -> XK_3270_Rule
+  | 0xfd15 -> XK_3270_Copy
+  | 0xfd16 -> XK_3270_Play
+  | 0xfd17 -> XK_3270_Setup
+  | 0xfd18 -> XK_3270_Record
+  | 0xfd19 -> XK_3270_ChangeScreen
+  | 0xfd1a -> XK_3270_DeleteWord
+  | 0xfd1b -> XK_3270_ExSelect
+  | 0xfd1c -> XK_3270_CursorSelect
+  | 0xfd1d -> XK_3270_PrintScreen
+  | 0xfd1e -> XK_3270_Enter
 #endif /* XK_3270 */
 
 (*
@@ -2919,7 +2919,7 @@ let keysym_var = function
   | 0x10004b9 -> XK_Cyrillic_che_vertstroke    (* U+04B9 CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE *)
   | 0x10004ba -> XK_Cyrillic_SHHA              (* U+04BA CYRILLIC CAPITAL LETTER SHHA *)
   | 0x10004bb -> XK_Cyrillic_shha              (* U+04BB CYRILLIC SMALL LETTER SHHA *)
-             
+
   | 0x10004d8 -> XK_Cyrillic_SCHWA             (* U+04D8 CYRILLIC CAPITAL LETTER SCHWA *)
   | 0x10004d9 -> XK_Cyrillic_schwa             (* U+04D9 CYRILLIC SMALL LETTER SCHWA *)
   | 0x10004e2 -> XK_Cyrillic_I_macron          (* U+04E2 CYRILLIC CAPITAL LETTER I WITH MACRON *)
@@ -3147,13 +3147,13 @@ let keysym_var = function
   | 0x08ae -> XK_botrightparens                (* U+23A0 RIGHT PARENTHESIS LOWER HOOK *)
   | 0x08af -> XK_leftmiddlecurlybrace          (* U+23A8 LEFT CURLY BRACKET MIDDLE PIECE *)
   | 0x08b0 -> XK_rightmiddlecurlybrace         (* U+23AC RIGHT CURLY BRACKET MIDDLE PIECE *)
-  | 0x08b1 -> XK_topleftsummation            
-  | 0x08b2 -> XK_botleftsummation            
-  | 0x08b3 -> XK_topvertsummationconnector   
-  | 0x08b4 -> XK_botvertsummationconnector   
-  | 0x08b5 -> XK_toprightsummation           
-  | 0x08b6 -> XK_botrightsummation           
-  | 0x08b7 -> XK_rightmiddlesummation        
+  | 0x08b1 -> XK_topleftsummation
+  | 0x08b2 -> XK_botleftsummation
+  | 0x08b3 -> XK_topvertsummationconnector
+  | 0x08b4 -> XK_botvertsummationconnector
+  | 0x08b5 -> XK_toprightsummation
+  | 0x08b6 -> XK_botrightsummation
+  | 0x08b7 -> XK_rightmiddlesummation
   | 0x08bc -> XK_lessthanequal                 (* U+2264 LESS-THAN OR EQUAL TO *)
   | 0x08bd -> XK_notequal                      (* U+2260 NOT EQUAL TO *)
   | 0x08be -> XK_greaterthanequal              (* U+2265 GREATER-THAN OR EQUAL TO *)
@@ -3189,7 +3189,7 @@ let keysym_var = function
  *)
 
 #ifdef XK_SPECIAL
-  | 0x09df -> XK_blank                       
+  | 0x09df -> XK_blank
   | 0x09e0 -> XK_soliddiamond                  (* U+25C6 BLACK DIAMOND *)
   | 0x09e1 -> XK_checkerboard                  (* U+2592 MEDIUM SHADE *)
   | 0x09e2 -> XK_ht                            (* U+2409 SYMBOL FOR HORIZONTAL TABULATION *)
@@ -3249,14 +3249,14 @@ let keysym_var = function
   | 0x0abc -> XK_leftanglebracket              (*(U+27E8 MATHEMATICAL LEFT ANGLE BRACKET)*)
   | 0x0abd -> XK_decimalpoint                  (*(U+002E FULL STOP)*)
   | 0x0abe -> XK_rightanglebracket             (*(U+27E9 MATHEMATICAL RIGHT ANGLE BRACKET)*)
-  | 0x0abf -> XK_marker                      
+  | 0x0abf -> XK_marker
   | 0x0ac3 -> XK_oneeighth                     (* U+215B VULGAR FRACTION ONE EIGHTH *)
   | 0x0ac4 -> XK_threeeighths                  (* U+215C VULGAR FRACTION THREE EIGHTHS *)
   | 0x0ac5 -> XK_fiveeighths                   (* U+215D VULGAR FRACTION FIVE EIGHTHS *)
   | 0x0ac6 -> XK_seveneighths                  (* U+215E VULGAR FRACTION SEVEN EIGHTHS *)
   | 0x0ac9 -> XK_trademark                     (* U+2122 TRADE MARK SIGN *)
   | 0x0aca -> XK_signaturemark                 (*(U+2613 SALTIRE)*)
-  | 0x0acb -> XK_trademarkincircle           
+  | 0x0acb -> XK_trademarkincircle
   | 0x0acc -> XK_leftopentriangle              (*(U+25C1 WHITE LEFT-POINTING TRIANGLE)*)
   | 0x0acd -> XK_rightopentriangle             (*(U+25B7 WHITE RIGHT-POINTING TRIANGLE)*)
   | 0x0ace -> XK_emopencircle                  (*(U+25CB WHITE CIRCLE)*)
@@ -3269,7 +3269,7 @@ let keysym_var = function
   | 0x0ad6 -> XK_minutes                       (* U+2032 PRIME *)
   | 0x0ad7 -> XK_seconds                       (* U+2033 DOUBLE PRIME *)
   | 0x0ad9 -> XK_latincross                    (* U+271D LATIN CROSS *)
-  | 0x0ada -> XK_hexagram                    
+  | 0x0ada -> XK_hexagram
   | 0x0adb -> XK_filledrectbullet              (*(U+25AC BLACK RECTANGLE)*)
   | 0x0adc -> XK_filledlefttribullet           (*(U+25C0 BLACK LEFT-POINTING TRIANGLE)*)
   | 0x0add -> XK_filledrighttribullet          (*(U+25B6 BLACK RIGHT-POINTING TRIANGLE)*)
@@ -3305,7 +3305,7 @@ let keysym_var = function
   | 0x0afc -> XK_caret                         (* U+2038 CARET *)
   | 0x0afd -> XK_singlelowquotemark            (* U+201A SINGLE LOW-9 QUOTATION MARK *)
   | 0x0afe -> XK_doublelowquotemark            (* U+201E DOUBLE LOW-9 QUOTATION MARK *)
-  | 0x0aff -> XK_cursor                      
+  | 0x0aff -> XK_cursor
 #endif /* XK_PUBLISHING */
 
 (*
@@ -3447,7 +3447,7 @@ let keysym_var = function
   | 0x0dd8 -> XK_Thai_sarau                    (* U+0E38 THAI CHARACTER SARA U *)
   | 0x0dd9 -> XK_Thai_sarauu                   (* U+0E39 THAI CHARACTER SARA UU *)
   | 0x0dda -> XK_Thai_phinthu                  (* U+0E3A THAI CHARACTER PHINTHU *)
-  | 0x0dde -> XK_Thai_maihanakat_maitho      
+  | 0x0dde -> XK_Thai_maihanakat_maitho
   | 0x0ddf -> XK_Thai_baht                     (* U+0E3F THAI CURRENCY SYMBOL BAHT *)
   | 0x0de0 -> XK_Thai_sarae                    (* U+0E40 THAI CHARACTER SARA E *)
   | 0x0de1 -> XK_Thai_saraae                   (* U+0E41 THAI CHARACTER SARA AE *)
@@ -3500,106 +3500,106 @@ let keysym_var = function
   | 0xff7e -> XK_Hangul_switch                 (* Alias for mode_switch *)
 
 (* Hangul Consonant Characters *)
-  | 0x0ea1 -> XK_Hangul_Kiyeog               
-  | 0x0ea2 -> XK_Hangul_SsangKiyeog          
-  | 0x0ea3 -> XK_Hangul_KiyeogSios           
-  | 0x0ea4 -> XK_Hangul_Nieun                
-  | 0x0ea5 -> XK_Hangul_NieunJieuj           
-  | 0x0ea6 -> XK_Hangul_NieunHieuh           
-  | 0x0ea7 -> XK_Hangul_Dikeud               
-  | 0x0ea8 -> XK_Hangul_SsangDikeud          
-  | 0x0ea9 -> XK_Hangul_Rieul                
-  | 0x0eaa -> XK_Hangul_RieulKiyeog          
-  | 0x0eab -> XK_Hangul_RieulMieum           
-  | 0x0eac -> XK_Hangul_RieulPieub           
-  | 0x0ead -> XK_Hangul_RieulSios            
-  | 0x0eae -> XK_Hangul_RieulTieut           
-  | 0x0eaf -> XK_Hangul_RieulPhieuf          
-  | 0x0eb0 -> XK_Hangul_RieulHieuh           
-  | 0x0eb1 -> XK_Hangul_Mieum                
-  | 0x0eb2 -> XK_Hangul_Pieub                
-  | 0x0eb3 -> XK_Hangul_SsangPieub           
-  | 0x0eb4 -> XK_Hangul_PieubSios            
-  | 0x0eb5 -> XK_Hangul_Sios                 
-  | 0x0eb6 -> XK_Hangul_SsangSios            
-  | 0x0eb7 -> XK_Hangul_Ieung                
-  | 0x0eb8 -> XK_Hangul_Jieuj                
-  | 0x0eb9 -> XK_Hangul_SsangJieuj           
-  | 0x0eba -> XK_Hangul_Cieuc                
-  | 0x0ebb -> XK_Hangul_Khieuq               
-  | 0x0ebc -> XK_Hangul_Tieut                
-  | 0x0ebd -> XK_Hangul_Phieuf               
-  | 0x0ebe -> XK_Hangul_Hieuh                
+  | 0x0ea1 -> XK_Hangul_Kiyeog
+  | 0x0ea2 -> XK_Hangul_SsangKiyeog
+  | 0x0ea3 -> XK_Hangul_KiyeogSios
+  | 0x0ea4 -> XK_Hangul_Nieun
+  | 0x0ea5 -> XK_Hangul_NieunJieuj
+  | 0x0ea6 -> XK_Hangul_NieunHieuh
+  | 0x0ea7 -> XK_Hangul_Dikeud
+  | 0x0ea8 -> XK_Hangul_SsangDikeud
+  | 0x0ea9 -> XK_Hangul_Rieul
+  | 0x0eaa -> XK_Hangul_RieulKiyeog
+  | 0x0eab -> XK_Hangul_RieulMieum
+  | 0x0eac -> XK_Hangul_RieulPieub
+  | 0x0ead -> XK_Hangul_RieulSios
+  | 0x0eae -> XK_Hangul_RieulTieut
+  | 0x0eaf -> XK_Hangul_RieulPhieuf
+  | 0x0eb0 -> XK_Hangul_RieulHieuh
+  | 0x0eb1 -> XK_Hangul_Mieum
+  | 0x0eb2 -> XK_Hangul_Pieub
+  | 0x0eb3 -> XK_Hangul_SsangPieub
+  | 0x0eb4 -> XK_Hangul_PieubSios
+  | 0x0eb5 -> XK_Hangul_Sios
+  | 0x0eb6 -> XK_Hangul_SsangSios
+  | 0x0eb7 -> XK_Hangul_Ieung
+  | 0x0eb8 -> XK_Hangul_Jieuj
+  | 0x0eb9 -> XK_Hangul_SsangJieuj
+  | 0x0eba -> XK_Hangul_Cieuc
+  | 0x0ebb -> XK_Hangul_Khieuq
+  | 0x0ebc -> XK_Hangul_Tieut
+  | 0x0ebd -> XK_Hangul_Phieuf
+  | 0x0ebe -> XK_Hangul_Hieuh
 
 (* Hangul Vowel Characters *)
-  | 0x0ebf -> XK_Hangul_A                    
-  | 0x0ec0 -> XK_Hangul_AE                   
-  | 0x0ec1 -> XK_Hangul_YA                   
-  | 0x0ec2 -> XK_Hangul_YAE                  
-  | 0x0ec3 -> XK_Hangul_EO                   
-  | 0x0ec4 -> XK_Hangul_E                    
-  | 0x0ec5 -> XK_Hangul_YEO                  
-  | 0x0ec6 -> XK_Hangul_YE                   
-  | 0x0ec7 -> XK_Hangul_O                    
-  | 0x0ec8 -> XK_Hangul_WA                   
-  | 0x0ec9 -> XK_Hangul_WAE                  
-  | 0x0eca -> XK_Hangul_OE                   
-  | 0x0ecb -> XK_Hangul_YO                   
-  | 0x0ecc -> XK_Hangul_U                    
-  | 0x0ecd -> XK_Hangul_WEO                  
-  | 0x0ece -> XK_Hangul_WE                   
-  | 0x0ecf -> XK_Hangul_WI                   
-  | 0x0ed0 -> XK_Hangul_YU                   
-  | 0x0ed1 -> XK_Hangul_EU                   
-  | 0x0ed2 -> XK_Hangul_YI                   
-  | 0x0ed3 -> XK_Hangul_I                    
+  | 0x0ebf -> XK_Hangul_A
+  | 0x0ec0 -> XK_Hangul_AE
+  | 0x0ec1 -> XK_Hangul_YA
+  | 0x0ec2 -> XK_Hangul_YAE
+  | 0x0ec3 -> XK_Hangul_EO
+  | 0x0ec4 -> XK_Hangul_E
+  | 0x0ec5 -> XK_Hangul_YEO
+  | 0x0ec6 -> XK_Hangul_YE
+  | 0x0ec7 -> XK_Hangul_O
+  | 0x0ec8 -> XK_Hangul_WA
+  | 0x0ec9 -> XK_Hangul_WAE
+  | 0x0eca -> XK_Hangul_OE
+  | 0x0ecb -> XK_Hangul_YO
+  | 0x0ecc -> XK_Hangul_U
+  | 0x0ecd -> XK_Hangul_WEO
+  | 0x0ece -> XK_Hangul_WE
+  | 0x0ecf -> XK_Hangul_WI
+  | 0x0ed0 -> XK_Hangul_YU
+  | 0x0ed1 -> XK_Hangul_EU
+  | 0x0ed2 -> XK_Hangul_YI
+  | 0x0ed3 -> XK_Hangul_I
 
 (* Hangul syllable-final (JongSeong) Characters *)
-  | 0x0ed4 -> XK_Hangul_J_Kiyeog             
-  | 0x0ed5 -> XK_Hangul_J_SsangKiyeog        
-  | 0x0ed6 -> XK_Hangul_J_KiyeogSios         
-  | 0x0ed7 -> XK_Hangul_J_Nieun              
-  | 0x0ed8 -> XK_Hangul_J_NieunJieuj         
-  | 0x0ed9 -> XK_Hangul_J_NieunHieuh         
-  | 0x0eda -> XK_Hangul_J_Dikeud             
-  | 0x0edb -> XK_Hangul_J_Rieul              
-  | 0x0edc -> XK_Hangul_J_RieulKiyeog        
-  | 0x0edd -> XK_Hangul_J_RieulMieum         
-  | 0x0ede -> XK_Hangul_J_RieulPieub         
-  | 0x0edf -> XK_Hangul_J_RieulSios          
-  | 0x0ee0 -> XK_Hangul_J_RieulTieut         
-  | 0x0ee1 -> XK_Hangul_J_RieulPhieuf        
-  | 0x0ee2 -> XK_Hangul_J_RieulHieuh         
-  | 0x0ee3 -> XK_Hangul_J_Mieum              
-  | 0x0ee4 -> XK_Hangul_J_Pieub              
-  | 0x0ee5 -> XK_Hangul_J_PieubSios          
-  | 0x0ee6 -> XK_Hangul_J_Sios               
-  | 0x0ee7 -> XK_Hangul_J_SsangSios          
-  | 0x0ee8 -> XK_Hangul_J_Ieung              
-  | 0x0ee9 -> XK_Hangul_J_Jieuj              
-  | 0x0eea -> XK_Hangul_J_Cieuc              
-  | 0x0eeb -> XK_Hangul_J_Khieuq             
-  | 0x0eec -> XK_Hangul_J_Tieut              
-  | 0x0eed -> XK_Hangul_J_Phieuf             
-  | 0x0eee -> XK_Hangul_J_Hieuh              
+  | 0x0ed4 -> XK_Hangul_J_Kiyeog
+  | 0x0ed5 -> XK_Hangul_J_SsangKiyeog
+  | 0x0ed6 -> XK_Hangul_J_KiyeogSios
+  | 0x0ed7 -> XK_Hangul_J_Nieun
+  | 0x0ed8 -> XK_Hangul_J_NieunJieuj
+  | 0x0ed9 -> XK_Hangul_J_NieunHieuh
+  | 0x0eda -> XK_Hangul_J_Dikeud
+  | 0x0edb -> XK_Hangul_J_Rieul
+  | 0x0edc -> XK_Hangul_J_RieulKiyeog
+  | 0x0edd -> XK_Hangul_J_RieulMieum
+  | 0x0ede -> XK_Hangul_J_RieulPieub
+  | 0x0edf -> XK_Hangul_J_RieulSios
+  | 0x0ee0 -> XK_Hangul_J_RieulTieut
+  | 0x0ee1 -> XK_Hangul_J_RieulPhieuf
+  | 0x0ee2 -> XK_Hangul_J_RieulHieuh
+  | 0x0ee3 -> XK_Hangul_J_Mieum
+  | 0x0ee4 -> XK_Hangul_J_Pieub
+  | 0x0ee5 -> XK_Hangul_J_PieubSios
+  | 0x0ee6 -> XK_Hangul_J_Sios
+  | 0x0ee7 -> XK_Hangul_J_SsangSios
+  | 0x0ee8 -> XK_Hangul_J_Ieung
+  | 0x0ee9 -> XK_Hangul_J_Jieuj
+  | 0x0eea -> XK_Hangul_J_Cieuc
+  | 0x0eeb -> XK_Hangul_J_Khieuq
+  | 0x0eec -> XK_Hangul_J_Tieut
+  | 0x0eed -> XK_Hangul_J_Phieuf
+  | 0x0eee -> XK_Hangul_J_Hieuh
 
 (* Ancient Hangul Consonant Characters *)
-  | 0x0eef -> XK_Hangul_RieulYeorinHieuh     
-  | 0x0ef0 -> XK_Hangul_SunkyeongeumMieum    
-  | 0x0ef1 -> XK_Hangul_SunkyeongeumPieub    
-  | 0x0ef2 -> XK_Hangul_PanSios              
-  | 0x0ef3 -> XK_Hangul_KkogjiDalrinIeung    
-  | 0x0ef4 -> XK_Hangul_SunkyeongeumPhieuf   
-  | 0x0ef5 -> XK_Hangul_YeorinHieuh          
+  | 0x0eef -> XK_Hangul_RieulYeorinHieuh
+  | 0x0ef0 -> XK_Hangul_SunkyeongeumMieum
+  | 0x0ef1 -> XK_Hangul_SunkyeongeumPieub
+  | 0x0ef2 -> XK_Hangul_PanSios
+  | 0x0ef3 -> XK_Hangul_KkogjiDalrinIeung
+  | 0x0ef4 -> XK_Hangul_SunkyeongeumPhieuf
+  | 0x0ef5 -> XK_Hangul_YeorinHieuh
 
 (* Ancient Hangul Vowel Characters *)
-  | 0x0ef6 -> XK_Hangul_AraeA                
-  | 0x0ef7 -> XK_Hangul_AraeAE               
+  | 0x0ef6 -> XK_Hangul_AraeA
+  | 0x0ef7 -> XK_Hangul_AraeAE
 
 (* Ancient Hangul syllable-final (JongSeong) Characters *)
-  | 0x0ef8 -> XK_Hangul_J_PanSios            
-  | 0x0ef9 -> XK_Hangul_J_KkogjiDalrinIeung  
-  | 0x0efa -> XK_Hangul_J_YeorinHieuh        
+  | 0x0ef8 -> XK_Hangul_J_PanSios
+  | 0x0ef9 -> XK_Hangul_J_KkogjiDalrinIeung
+  | 0x0efa -> XK_Hangul_J_YeorinHieuh
 
 (* Korean currency symbol *)
   | 0x0eff -> XK_Korean_Won                    (*(U+20A9 WON SIGN)*)
@@ -3778,7 +3778,7 @@ let keysym_var = function
 (*
  * Vietnamese
  *)
- 
+
 #ifdef XK_VIETNAMESE
   | 0x1001ea0 -> XK_Abelowdot                  (* U+1EA0 LATIN CAPITAL LETTER A WITH DOT BELOW *)
   | 0x1001ea1 -> XK_abelowdot                  (* U+1EA1 LATIN SMALL LETTER A WITH DOT BELOW *)

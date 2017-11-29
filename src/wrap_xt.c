@@ -1,19 +1,19 @@
 /* OCaml bindings for the Xt library (as part of OCaml-Xlib).
    Copyright (C) 2008 by Florent Monnier
    printf("fmonnier@%s", "linux-nantes.org");
- 
+
   OCaml-Xlib is FLOSS software:
- 
+
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
   to deal in the Software without restriction, including without limitation
   the rights to use, copy, modify, merge, publish, distribute, sublicense,
   and/or sell copies of the Software, and to permit persons to whom the
   Software is furnished to do so, subject to the following conditions:
- 
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
- 
+
   The Software is provided "AS IS", without warranty of any kind, express or
   implied, including but not limited to the warranties of merchantability,
   fitness for a particular purpose and noninfringement. In no event shall
@@ -122,7 +122,7 @@ ml_XtAppMainLoop( value app_context )
         *(XtAppContext_val(app_context)) );
     return Val_unit;
 }
-    
+
 CAMLprim value
 ml_XtDestroyApplicationContext( value app_context )
 {
@@ -152,7 +152,7 @@ ml_XtUnmanageChild( value child )
     return Val_unit;
 }
 
-// {{{ Information routines 
+// {{{ Information routines
 
 CAMLprim value
 ml_XtDisplay( value widget )
@@ -177,7 +177,7 @@ ml_XtScreen( value widget )
 
 /*
 Screen *XtScreenOfObject(
-    Widget  object 
+    Widget  object
 );
 */
 
@@ -190,19 +190,19 @@ ml_XtWindow( value widget )
 
 /*
 Window XtWindowOfObject(
-    Widget    object 
+    Widget    object
 );
 
 String XtName(
-    Widget     object 
+    Widget     object
 );
 
 WidgetClass XtSuperclass(
-    Widget     object 
+    Widget     object
 );
 
 WidgetClass XtClass(
-    Widget        object 
+    Widget        object
 );
 */
 
@@ -248,7 +248,7 @@ static value caml_xt_cb = 0;
 
 CAMLprim value
 init_xtAddCallback(value v)
-{ 
+{
   caml_xt_cb = v;
   caml_register_global_root(&caml_xt_cb);
   return Val_unit;

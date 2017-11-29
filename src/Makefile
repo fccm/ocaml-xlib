@@ -2,7 +2,7 @@
 #  Copyright (C) 2008, 2009 Florent Monnier
 ##contact:
 ##	@printf "fmonnier%s"'linux-nantes.org\n' "@"
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
 # to deal in the Software without restriction, including without limitation
@@ -42,7 +42,7 @@ alls everything: all opt xt glx glx_p2t
 .PHONY: dist snapshot
 .PHONY: install install_x install_glx install_glx_p2t install_xt install_all
 
-# {{{ mlcpp 
+# {{{ mlcpp
 #  Makes use of a minimal preprocessor for OCaml source files.
 #  It is similar to cpp, but this replacement for cpp is because
 #  cpp versions in different environments may have different

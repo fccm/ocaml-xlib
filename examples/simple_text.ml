@@ -2,7 +2,7 @@
  * simple-text.ml - demonstrate drawing of text strings on a window. All
  *		    drawings are done in black color over a white background.
  *)
-(* 
+(*
  * Program found here:
  * http://users.actcom.co.il/%7Echoo/lupg/tutorials/xlib-programming/xlib-programming.html
  * http://users.actcom.co.il/%7Echoo/lupg/tutorials/xlib-programming/simple-text.c

@@ -36,7 +36,7 @@ let redraw ~dpy ~win ~gwin =
     glTexCoord2 1.0 0.0; glVertex3 ( 1.0) ( 1.0) (0.0);
     glTexCoord2 1.0 1.0; glVertex3 ( 1.0) (-1.0) (0.0);
     glTexCoord2 0.0 1.0; glVertex3 (-1.0) (-1.0) (0.0);
-  glEnd(); 
+  glEnd();
 
   glXSwapBuffers dpy gwin;
 ;;
@@ -45,7 +45,7 @@ let redraw ~dpy ~win ~gwin =
 (* main *)
 let () =
   let dpy = xOpenDisplay "" in
-  
+
   let root = xDefaultRootWindow dpy in
   let scr = xDefaultScreen dpy in
 
@@ -71,7 +71,7 @@ let () =
   let gwin = glXDrawable_of_window win in
   glXMakeCurrent dpy gwin glc;
   glEnable GL_DEPTH_TEST;
-  
+
   (* create a pixmap and draw something *)
 
   let pixmap = xCreatePixmap dpy root pixmap_width pixmap_height vid.depth in

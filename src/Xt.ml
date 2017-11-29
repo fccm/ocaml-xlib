@@ -65,15 +65,15 @@ let cb_tbl = Hashtbl.create 101
 let real_callback i v =
   (Hashtbl.find cb_tbl i) v
 
-let _ = 
+let _ =
   init_xtAddCallback real_callback
 
-let cb_count = ref 0 
+let cb_count = ref 0
 
 let xtAddCallback ~widget ~name ~cb:(cb:(data:'a -> value:'b -> unit)) ~data =
   let i = !cb_count in
   incr cb_count;
-  Hashtbl.add cb_tbl i (fun value -> 
+  Hashtbl.add cb_tbl i (fun value ->
     (* Hashtbl.remove cb_tbl i; *)
     cb ~data ~value);
   xtAddCallback ~widget ~name ~i

@@ -1,6 +1,6 @@
 (* A demonstration of using the GLX functions.
    This program is in the public domain.
-  
+
    Brian Paul
 *)
 (* OCaml version F.Monnier *)
