@@ -320,6 +320,7 @@ ml_glXGetFBConfigs( value dpy, value screen )
 CAMLprim value
 ml_XFree_glXFBConfig( value configs )
 {
+    CAMLparam0();
     CAMLlocal1(head);
     GLXFBConfig config_head;
     if (configs == Val_emptylist)

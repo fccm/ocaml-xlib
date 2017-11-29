@@ -2082,7 +2082,7 @@ external xChangeKeyboardMapping:
 external xChangeKeyboardMapping_single:
     dpy:display ->
     keycode:keycode ->
-    keysym:int -> unit = "ml_XChangeKeyboardMapping_single" "noalloc"
+    keysym:int -> unit = "ml_XChangeKeyboardMapping_single" [@@noalloc]
 (** same as [xChangeKeyboardMapping] but requests for only one item *)
 
 (*

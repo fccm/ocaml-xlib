@@ -330,6 +330,7 @@ static inline value Focus_state_val(value mode) {
 // The list provided to caml_copy_string_array() needs to be NULL terminated
 static value caml_copy_string_array_n(char **strl, int n)
 {
+    CAMLparam0();
     CAMLlocal1(ret);
     char const **param;
     int i;
@@ -372,6 +373,7 @@ ml_XSetErrorHandler( value unit )
 
 int ErrorHandler_closure( Display *dpy, XErrorEvent *event )
 {
+    CAMLparam0();
     CAMLlocal1( ml_event );
     static value * closure_f = NULL;
     if (closure_f == NULL) {
@@ -498,6 +500,7 @@ static inline value Val_focus_state(int state)
 CAMLprim value
 ml_XGetInputFocus( value dpy )
 {
+    CAMLparam0();
     CAMLlocal1(pair);
     Window w;
     int revert_to;
@@ -1542,6 +1545,7 @@ ml_XStoreName( value dpy, value win, value name )
 CAMLprim value
 ml_XFetchName( value dpy, value win )
 {
+    CAMLparam0();
     CAMLlocal1( ml_window_name );
     char * window_name = NULL;
     //GET_STATUS
@@ -3643,6 +3647,7 @@ ml_XSetFontPath( value dpy, value ml_directories )
 CAMLprim value
 ml_XGetFontPath( value dpy )
 {
+    CAMLparam0();
     CAMLlocal1(ml_paths);
     int npaths;
     char **paths = XGetFontPath(
@@ -3657,6 +3662,7 @@ ml_XGetFontPath( value dpy )
 CAMLprim value
 ml_XListFonts( value dpy, value pattern, value maxnames )
 {
+    CAMLparam0();
     CAMLlocal1(ml_list);
     int actual_count;
     char **list = XListFonts(
@@ -5039,6 +5045,7 @@ ml_XRefreshKeyboardMapping( value event )
 CAMLprim value
 ml_XDisplayKeycodes( value dpy )
 {
+    CAMLparam0();
     CAMLlocal1( tpl );
     int min_keycodes, max_keycodes;
     //GET_STATUS
