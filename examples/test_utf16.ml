@@ -1,5 +1,5 @@
 (* simple test for utf16 *)
-(* run with: ocaml Xlib.cma keysym.cma test-utf16.ml *)
+(* run with: ocaml -I ../src Xlib.cma keysym.cma test_utf16.ml *)
 
 open Xlib
 
