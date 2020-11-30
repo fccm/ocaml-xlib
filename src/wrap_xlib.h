@@ -48,8 +48,15 @@ Val_some(value v)
 /* The scruture Screen is here renamed with an additionnal X
    as a way of disambiguation with screen numbers (int) and 
    its conversion macro ScreenNB_val() */
-#define Val_XScreen(s) ((value)(s))
-#define XScreen_val(v) ((Screen *)(v))
+value Val_XScreen(Screen *s)
+{
+    return caml_copy_nativeint((intnat) s);
+}
+
+Screen * XScreen_val(value v)
+{
+    return (Screen *) Nativeint_val(v);
+}
 
 
 #define XID_val(type,v) ((type) (v))
