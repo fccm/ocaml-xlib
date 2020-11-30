@@ -129,11 +129,11 @@ let () =
   ignore(nb_colors); (* unused *)
 
   (* data allocation *)
-  let image_data = String.create ((Sys.word_size / 8) * image_width * image_height) in
+  let image_data = Bytes.create ((Sys.word_size / 8) * image_width * image_height) in
 
   (* creation of the image *)
   let ximage = xCreateImage display (xDefaultVisual display screen) nplanes ZPixmap 0
-                            image_data image_width image_height Sys.word_size 0 in
+                            (Bytes.to_string image_data) image_width image_height Sys.word_size 0 in
 
   (* dunno how this piece should be translated, I mean the __i386__ in the ifdef *)
 (*
