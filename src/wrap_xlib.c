@@ -321,6 +321,7 @@ Eventmask_val( value em_list )
 // The list provided to caml_copy_string_array() needs to be NULL terminated
 static value caml_copy_string_array_n(char **strl, int n)
 {
+    CAMLparam0();
     CAMLlocal1(ret);
     char const **param;
     int i;
@@ -331,7 +332,7 @@ static value caml_copy_string_array_n(char **strl, int n)
     param[n] = NULL;  // here the point
     ret = caml_copy_string_array(param);
     free(param);
-    return ret;
+    CAMLreturn( ret );
 }
 // }}}
 
@@ -363,6 +364,7 @@ ml_XSetErrorHandler( value unit )
 
 int ErrorHandler_closure( Display *dpy, XErrorEvent *event )
 {
+    CAMLparam0();
     CAMLlocal1( ml_event );
     static value * closure_f = NULL;
     if (closure_f == NULL) {
@@ -370,7 +372,7 @@ int ErrorHandler_closure( Display *dpy, XErrorEvent *event )
     }
     copy_XEvent( event, ml_event );
     caml_callback2( *closure_f, Val_Display(dpy), ml_event );
-    return 0;
+    CAMLreturn(0);
 }
 CAMLprim value
 ml_XSetErrorHandler( value unit ) {
@@ -1498,6 +1500,7 @@ ml_XStoreName( value dpy, value win, value name )
 CAMLprim value
 ml_XFetchName( value dpy, value win )
 {
+    CAMLparam2( dpy, win );
     CAMLlocal1( ml_window_name );
     char * window_name = NULL;
     //GET_STATUS
@@ -1513,7 +1516,7 @@ ml_XFetchName( value dpy, value win )
     } else {
         caml_failwith("xFetchName");
     }
-    return ml_window_name;
+    CAMLreturn( ml_window_name );
 }
 
 CAMLprim value
@@ -3561,6 +3564,7 @@ ml_XSetFontPath( value dpy, value ml_directories )
 CAMLprim value
 ml_XGetFontPath( value dpy )
 {
+    CAMLparam1( dpy );
     CAMLlocal1(ml_paths);
     int npaths;
     char **paths = XGetFontPath(
@@ -3569,12 +3573,13 @@ ml_XGetFontPath( value dpy )
     );
     ml_paths = caml_copy_string_array_n(paths, npaths);
     XFreeFontPath(paths);
-    return ml_paths;
+    CAMLreturn( ml_paths );
 }
 
 CAMLprim value
 ml_XListFonts( value dpy, value pattern, value maxnames )
 {
+    CAMLparam3( dpy, pattern, maxnames );
     CAMLlocal1(ml_list);
     int actual_count;
     char **list = XListFonts(
@@ -3588,7 +3593,7 @@ ml_XListFonts( value dpy, value pattern, value maxnames )
     }
     ml_list = caml_copy_string_array_n(list, actual_count);
     XFreeFontNames(list);
-    return ml_list;
+    CAMLreturn( ml_list );
 }
 
 #if 0
@@ -4916,6 +4921,7 @@ ml_XRefreshKeyboardMapping( value event )
 CAMLprim value
 ml_XDisplayKeycodes( value dpy )
 {
+    CAMLparam1( dpy );
     CAMLlocal1( tpl );
     int min_keycodes, max_keycodes;
     //GET_STATUS
@@ -4928,7 +4934,7 @@ ml_XDisplayKeycodes( value dpy )
     tpl = caml_alloc(2, 0);
     Store_field( tpl, 0, Val_KeyCode(min_keycodes) );
     Store_field( tpl, 1, Val_KeyCode(max_keycodes) );
-    return tpl;
+    CAMLreturn( tpl );
 }
 
 /*
