@@ -320,6 +320,7 @@ ml_glXGetFBConfigs( value dpy, value screen )
 CAMLprim value
 ml_XFree_glXFBConfig( value configs )
 {
+    CAMLparam1(configs);
     CAMLlocal1(head);
     GLXFBConfig config_head;
     if (configs == Val_emptylist)
@@ -327,7 +328,7 @@ ml_XFree_glXFBConfig( value configs )
     head = Field(configs, 0);
     config_head = GLXFBConfig_val(head);
     XFree( &config_head );
-    return Val_unit;
+    CAMLreturn(Val_unit);
 }
 
 CAMLprim value
