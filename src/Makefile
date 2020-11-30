@@ -64,7 +64,7 @@ wrap_xlib.o: wrap_xlib.c
 dll_xlib_stubs.so lib_xlib_stubs.a: wrap_xlib.o
 	$(OCAMLMKLIB)  -o  _xlib_stubs  $< \
 	    -L/usr/X11R6/lib -lX11 \
-	    -L`$(OCAMLC) -where` -lbigarray
+	    -L`$(OCAMLC) -where`
 
 Xlib.cmi: Xlib.ml $(MLPP)
 	$(OCAMLC) -c -pp '$(MLPP) -C -D MLI=1' -intf $<
