@@ -3,7 +3,7 @@
   This is a minimal preprocessor for OCaml source files.
  
   Copyright (C) 2008  Florent Monnier
-  Contact: ("fmonnier@" ^ "linux-nantes.org")
+  Contact: ("monnier.florent@" ^ "gmail.com")
  
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),

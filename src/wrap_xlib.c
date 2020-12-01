@@ -1,6 +1,6 @@
 /* OCaml bindings for the Xlib library.
    Copyright (C) 2008, 2009, 2010 by Florent Monnier
-   printf("fmonnier@%s", "linux-nantes.org");
+   printf("monnier.florent@%s", "gmail.com");
  
   OCaml-Xlib is FLOSS software:
  

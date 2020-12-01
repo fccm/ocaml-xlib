@@ -4,8 +4,8 @@ OCaml bindings for the Xlib library.
 
 ============= ATTRIBUTION %
 
-Copyright (C) 2008, 2009, 2010 Florent Monnier
-Contact: <fmonnier@linux-nantes.roll> (replace .roll by .org)
+Copyright (C) 2008, 2009, 2010, 2020 Florent Monnier
+Contact: <monnier.florent()gmail.com>
 
 ============= LICENSE %
 
@@ -20,7 +20,7 @@ under the terms of any of these licenses:
 
 ============= HOMEPAGE %
 
-http://www.linux-nantes.org/%7Efmonnier/OCaml/Xlib/
+http://decapode314.free.fr/ocaml/Xlib/
 
 ============= DESCRIPTION %
 

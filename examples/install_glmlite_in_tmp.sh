@@ -1,6 +1,6 @@
-BASENAME=glMLite-0.03.51
+BASENAME=glMLite-0.03.53
 pushd /tmp
-wget -nc http://www.linux-nantes.org/%7Efmonnier/OCaml/GL/download/${BASENAME}.tgz
+wget -nc https://github.com/fccm/glMLite/archive/v0.03.53.tar.gz -O - > ${BASENAME}.tgz
 tar xzf ${BASENAME}.tgz
 pushd ${BASENAME}/
 make

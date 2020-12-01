@@ -1,6 +1,6 @@
 (** OCaml bindings to the GLX_EXT_texture_from_pixmap extension *)
 (* Copyright (C) 2008, 2009 by Florent Monnier
-   Contact: ("fmonnier@" ^ "linux-nantes.org")
+   Contact: ("monnier.florent@" ^ "gmail.com")
   
   OCaml-Xlib is FLOSS software:
  

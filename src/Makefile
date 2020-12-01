@@ -1,7 +1,7 @@
 #  This file is a build script for the OCaml-Xlib bindings.
 #  Copyright (C) 2008, 2009 Florent Monnier
 ##contact:
-##	@printf "fmonnier%s"'linux-nantes.org\n' "@"
+##	@printf "monnier.florent%s"'gmail.com\n' "@"
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
