@@ -105,4 +105,10 @@ Alex Muscar <muscar(_)gmail.com>, 2012-01-01:
 - provided a patch to add the function ml_XCreateWindowEvent_datas()
   and the type xCreateWindowEvent_contents
 
+Tim Cuthbertson <tim()gfxmonk.net>, 2015-12-28:
+- XClientMessageEvent
+- XGetWindowProperty
+- xLastKnownRequestProcessed
+- XGetInputFocus
+
 ============= EOF %
