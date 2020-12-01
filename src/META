@@ -2,7 +2,6 @@ name = "xlib"
 version = "@VERSION@"
 description = "OCaml bindings to the Xlib library"
 requires = ""
-directory = "+Xlib"
 archive(byte) = "Xlib.cma"
 archive(native) = "Xlib.cmxa"
 

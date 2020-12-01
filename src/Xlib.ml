@@ -116,6 +116,9 @@ external xFlush: dpy:display -> unit = "ml_XFlush"
 external xBell: dpy:display -> percent:int -> unit = "ml_XBell"
 (** {{:http://tronche.com/gui/x/xlib/input/XBell.html}man} *)
 
+external xLastKnownRequestProcessed: dpy:display -> int = "ml_LastKnownRequestProcessed"
+(** {{:https://tronche.com/gui/x/xlib/display/display-macros.html#LastKnownRequestProcessed}man} *)
+
 (* WIP *)
 external xChangeKeyboardControl_bell_percent: dpy:display -> bell_percent:int -> unit
    = "ml_XChangeKeyboardControl_bell_percent"
@@ -503,6 +506,14 @@ external xRootWindow: dpy:display -> scr:screen_number -> window = "ml_XRootWind
 external xDefaultRootWindow: dpy:display -> window = "ml_XDefaultRootWindow"
 (** {{:http://tronche.com/gui/x/xlib/display/display-macros.html#DefaultRootWindow}man} *)
 
+type focus_state =
+  | RevertToParent
+  | RevertToPointerRoot
+  | RevertToNone
+
+external xGetInputFocus: dpy:display -> (window option * focus_state) = "ml_XGetInputFocus"
+(** {{:https://tronche.com/gui/x/xlib/input/XGetInputFocus.html}man} *)
+
 #if defined(ML)
 let root_win ~dpy ?scr () =
   let scr =
@@ -561,6 +572,9 @@ external xDestroyWindow: dpy:display -> win:window -> unit = "ml_XDestroyWindow"
 (** {{:http://tronche.com/gui/x/xlib/window/XDestroyWindow.html}man} *)
 
 external xid: int -> 'a = "caml_get_xid"
+(** some magic *)
+
+external xid_of_window: window -> int = "caml_get_xid_of_window"
 (** some magic *)
 
 external xStoreName: dpy:display -> win:window -> name:string -> unit = "ml_XStoreName"
@@ -777,6 +791,14 @@ external xGetWindowProperty_window:
     = "ml_XGetWindowProperty_window_bytecode"
       "ml_XGetWindowProperty_window"
 (** {{:http://tronche.com/gui/x/xlib/window-information/XGetWindowProperty.html}man} *)
+
+external hasWindowProperty:
+    dpy:display ->
+    win:window ->
+    property:atom ->
+    bool
+    = "ml_hasWindowProperty"
+(* Try getting a property, and return whether it exists *)
 
 
 
@@ -1898,6 +1920,21 @@ type xSelectionEvent_contents = {
 external xSelectionEvent_datas: xSelectionEvent xEvent -> xSelectionEvent_contents = "ml_XSelectionEvent_datas"
 (** {{:http://tronche.com/gui/x/xlib/events/client-communication/selection.html}man} *)
 
+type xClientMessgeEvent_data =
+  | ClientMessageBytes of int array
+  | ClientMessageShorts of int array
+  | ClientMessageLongs of int array
+
+type xClientMessageEvent_contents = {
+  client_message_serial: uint;
+  client_message_send_event: bool;
+  client_message_display: display;
+  client_message_window: window;
+  client_message_type: atom;
+  client_message_data: xClientMessgeEvent_data;
+  }
+(** {{:http://tronche.com/gui/x/xlib/events/client-communication/client-message.html}man} *)
+
 type xCreateWindowEvent_contents = {
     createwindow_serial: uint;
     createwindow_send_event: bool;
@@ -1968,7 +2005,7 @@ type event_content =
   | XSelectionRequestEvCnt of todo_contents
   | XSelectionEvCnt        of xSelectionEvent_contents
   | XColormapEvCnt         of todo_contents
-  | XClientMessageEvCnt    of todo_contents
+  | XClientMessageEvCnt    of xClientMessageEvent_contents
   | XMappingEvCnt          of todo_contents
 
 
