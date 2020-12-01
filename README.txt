@@ -48,6 +48,12 @@ The default prefix is `ocamlc -where`/Xlib
 you can change the destination install dir with:
 `make install PREFIX=/some/path`
 
+============= OPAM %
+
+You can install this code repository with Opam, with the command:
+
+opam install .
+
 ============= DOCUMENTATION %
 
 Get the HTML ocamldoc generated documentation with the command:
