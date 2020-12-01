@@ -500,6 +500,7 @@ static inline value Val_focus_state(int state)
 CAMLprim value
 ml_XGetInputFocus( value dpy )
 {
+    CAMLparam1( dpy );
     CAMLlocal1(pair);
     Window w;
     int revert_to;
@@ -507,7 +508,7 @@ ml_XGetInputFocus( value dpy )
     pair = caml_alloc(2, 0);
     Store_field(pair, 0, (w == None) ? Val_none : Val_some(Val_Window(w)));
     Store_field(pair, 1, Val_focus_state(revert_to));
-    return pair;
+    CAMLreturn( pair );
 }
 
 CAMLprim value
