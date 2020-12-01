@@ -27,7 +27,7 @@
   {b Warning:} This module is currently under construction.
 
   This module is a binding to this GLX extension:
-  {{:http://www.opengl.org/registry/specs/EXT/texture_from_pixmap.txt}GLX_EXT_texture_from_pixmap}
+  {{:https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_texture_from_pixmap.txt}GLX_EXT_texture_from_pixmap}
 *)
 
 external init_glx_p2t: unit -> unit = "ml_init_glx_p2t"

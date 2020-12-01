@@ -66,7 +66,7 @@ For examples of use, run the *.sh scripts.
 ============= EXTENSIONS %
 
 There is a module for the GLX extension texture_from_pixmap:
- http://www.opengl.org/registry/specs/EXT/texture_from_pixmap.txt
+ https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_texture_from_pixmap.txt
 
 To build and install, run:
 `make glx_p2t`
