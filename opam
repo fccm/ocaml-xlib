@@ -1,0 +1,29 @@
+opam-version: "2.0"
+name: "xlib"
+license: "MIT"
+authors: [ "Florent Monnier" ]
+maintainer: "https://github.com/fccm/"
+homepage: "https://github.com/fccm/ocaml-xlib"
+dev-repo: "git+https://github.com/fccm/ocaml-xlib.git"
+bug-reports: "https://github.com/fccm/ocaml-xlib/issues"
+doc: "http://decapode314.free.fr/ocaml/Xlib/doc/"
+tags: [ "bindings" "xlib" "windowing" "X Window System" "X11" ]
+synopsis: "Bindings to the Xlib library"
+description: """
+OCaml bindings to the Xlib library.
+
+https://en.wikipedia.org/wiki/Xlib
+
+This version of the bindings is known to work with libx11 version
+1.6.12
+"""
+depends: [
+  "ocaml"
+  "conf-libX11"
+]
+build: [
+  [make "-C" "src"]
+]
+install: [
+  [make "-C" "src" "install" "PREFIX=%{prefix}%/lib/xlib"]
+]
