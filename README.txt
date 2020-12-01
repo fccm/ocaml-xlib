@@ -10,7 +10,7 @@ Contact: <monnier.florent()gmail.com>
 ============= LICENSE %
 
 This library is released under the terms of the MIT license,
-described in file COPYING.txt
+described in file LICENSE.txt
 
 ============= ALTERNATIVE LICENSES %
 
